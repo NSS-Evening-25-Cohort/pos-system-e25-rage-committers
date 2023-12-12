@@ -8,11 +8,7 @@ body {
   text-align: center;
   margin-top: 100px;
 }
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
+
 .btn-warning{
   margin:5%;
   width: 30%;
@@ -23,7 +19,6 @@ body {
 .nav-link-color {
   color: white;
 }
-#navbar-logout-button {
-  margin-left: 10px;
+#navbar-logout-button { margin-left: 10px;
   margin-right: 10px;
 }
