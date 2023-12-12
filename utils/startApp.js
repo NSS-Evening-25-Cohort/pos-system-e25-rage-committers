@@ -3,6 +3,7 @@ import domEvents from '../events/domEvents';
 import domBuilder from '../components/shared/domBuilder';
 import navBar from '../components/shared/navBar';
 import formEvents from '../events/formEvents';
+import takeMeHome from '../pages/homePage';
 // import navigationEvents from '../events/navigationEvents';
 
 const startApp = (user) => {
@@ -11,7 +12,7 @@ const startApp = (user) => {
   formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
   navBar(user); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
-  // navigationEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
+  takeMeHome(); // LOAD THE HOME SCREEN
 };
 
 export default startApp;

@@ -5,7 +5,6 @@ import '../styles/main.scss';
 
 const init = () => {
   ViewDirectorBasedOnUserAuthStatus();
-  console.warn('YOU ARE UP AND RUNNING!');
 };
 
 init();
