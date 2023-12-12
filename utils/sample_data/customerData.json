@@ -1,0 +1,34 @@
+[
+  {
+    "firebaseKey":"customer1",
+    "customer_name":"Drake",
+    "customer_phone_no":"895 306 4272",
+    "customer_email":"wosgar0@dropbox.com"
+  },
+  {
+    "firebaseKey":"customer2",
+    "customer_name":"Babb Coltart",
+    "customer_phone_no":"639 485 1250","customer_email":"bcoltart1@hao123.com"
+  },
+  {
+    "firebaseKey":"customer3",
+    "customer_name":"Aldwin Dix",
+    "customer_phone_no":"384 865 2112","customer_email":"adix2@nytimes.com"
+  },
+  {
+    "firebaseKey":"customer4",
+    "customer_name":"Yalonda Kittless",
+    "customer_phone_no":"583 867 8493","customer_email":"ykittless3@angelfire.com"
+  },
+  {
+    "firebaseKey": "customer5",
+    "customer_name":"Port Kinman",
+    "customer_phone_no":"786 765 5432",
+    "customer_email":"pkinman4@si.edu"
+  },
+  {
+    "firebaseKey": "customer6",
+    "customer_name":"Borden O'Kuddyhy",
+    "customer_phone_no":"680 113 4027","customer_email":"bokuddyhy5@parallels.com"
+  }
+]
