@@ -12,7 +12,6 @@ const ViewDirectorBasedOnUserAuthStatus = () => {
       startApp();
       logoutButton();
     } else {
-      // person is NOT logged in
       loginButton();
     }
   });

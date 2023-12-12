@@ -4,11 +4,12 @@ const domBuilder = () => {
   const domString = `
   <div id="navigation"></div>
   <div id="main-container">
-    <div id="add-button">hey</div>
-    <div id="form-container"></div>
-    <div id="store"></div>
     <div id="view"></div>
-  </div>`;
+    <div id="order-container"></div>
+    <div id="item-container"></div>
+    <div id="form-container"></div>
+  </div>
+  `;
 
   renderToDOM('#app', domString);
 };
