@@ -16,9 +16,14 @@ body {
 #nav-logo{
   width: 75px;
 }
-.nav-link-color {
-  color: white;
+.navbar-brand {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-#navbar-logout-button margin-left: 10px;
-  margin-right: 10px;
+.search,.logout-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 }
