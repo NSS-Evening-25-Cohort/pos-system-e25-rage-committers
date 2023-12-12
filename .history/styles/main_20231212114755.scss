@@ -16,9 +16,10 @@ body {
 #nav-logo{
   width: 75px;
 }
-.nav-link-color {
-  color: white;
-}
-#navbar-logout-button margin-left: 10px;
-  margin-right: 10px;
+navbar-brand
+.right-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 }

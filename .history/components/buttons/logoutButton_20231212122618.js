@@ -5,6 +5,14 @@ const logoutButton = (user) => {
   const googleAuthButton = document.querySelector('#google-auth');
   console.warn(button);
   button.addEventListener('click', signOut);
+
+  if (user) {
+    // User is logged in
+    googleAuthButton.style.display = 'none';
+  } else {
+    // User is not logged in
+    googleAuthButton.style.display = 'block';
+  }
 };
 
 export default logoutButton;

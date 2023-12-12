@@ -11,7 +11,7 @@ const navBar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <a class="nav-link nav-link-color" aria-current="page" id="view-orders">View Orders</a>
+        <a class="nav-link active nav-link-color" aria-current="page" id="view-orders">View Orders</a>
         </li>
         <li class="nav-item">
         <a class="nav-link nav-link-color" id="create-order">Create an Order</a>
@@ -20,7 +20,6 @@ const navBar = () => {
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-        <button id="navbar-logout-button" class="btn btn-danger">SIGNOUT</button>
       </form>
     </div>
   </div>
