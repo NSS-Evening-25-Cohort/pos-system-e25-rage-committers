@@ -3,6 +3,7 @@ import {
   updateCustomer,
 } from '../api/customerData';
 import { createNewOrder, updateOrder } from '../api/orderData';
+import getTheTime from '../utils/getTheTime';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -25,7 +26,8 @@ const formEvents = () => {
               payment_type: '',
               tip_amount: '',
               total_amount: '',
-              order_status: 'open'
+              order_status: 'open',
+              time_submitted: getTheTime()
             };
             createNewOrder(orderPayload)
               .then((orderData) => {
