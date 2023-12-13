@@ -1,10 +1,9 @@
 import { signOut } from '../../utils/auth';
 
-const logoutButton = (user) => {
-  const button = document.querySelector('#navbar-logout-button');
-  const googleAuthButton = document.querySelector('#google-auth');
-  console.warn(button);
-  button.addEventListener('click', signOut);
+const logoutButton = () => {
+  const domString = '<button id="google-auth" class="btn btn-danger">SIGNOUT</button>';
+  document.querySelector('#login-form-container').innerHTML = (domString);
+  document.querySelector('#google-auth').addEventListener('click', signOut);
 };
 
 export default logoutButton;

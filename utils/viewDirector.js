@@ -4,6 +4,7 @@ import loginButton from '../components/buttons/loginButton';
 import logoutButton from '../components/buttons/logoutButton';
 import client from './client';
 import startApp from './startApp';
+import loginPage from '../pages/loginPage';
 
 const ViewDirectorBasedOnUserAuthStatus = () => {
   firebase.initializeApp(client);
@@ -12,7 +13,7 @@ const ViewDirectorBasedOnUserAuthStatus = () => {
       startApp();
       logoutButton();
     } else {
-      loginButton();
+      loginPage();
     }
   });
 };
