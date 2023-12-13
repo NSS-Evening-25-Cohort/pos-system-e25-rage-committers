@@ -1,7 +1,6 @@
 import {
   createNewCustomer,
   updateCustomer,
-  getCustomer
 } from '../api/customerData';
 import { createNewOrder, updateOrder } from '../api/orderData';
 
@@ -15,8 +14,8 @@ const formEvents = () => {
         customer_phone_no: document.getElementById('customer-phone').value,
         customer_email: document.getElementById('customer-email').value,
       };
-      createNewCustomer(customerPayload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
+      createNewCustomer(customerPayload).then((data) => {
+        const patchPayload = { firebaseKey: data.name };
         updateCustomer(patchPayload)
           .then((customerData) => {
             const orderPayload = {
@@ -26,8 +25,13 @@ const formEvents = () => {
               payment_type: '',
               tip_amount: '',
               total_amount: '',
+              order_status: 'open'
             };
-            createNewOrder(orderPayload);
+            createNewOrder(orderPayload)
+              .then((orderData) => {
+                const patchPayload2 = { firebaseKey: orderData.name };
+                updateOrder(patchPayload2);
+              });
           });
       });
     }
