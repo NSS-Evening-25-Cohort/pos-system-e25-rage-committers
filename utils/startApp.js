@@ -4,6 +4,7 @@ import domBuilder from '../components/shared/domBuilder';
 import navBar from '../components/shared/navBar';
 import formEvents from '../events/formEvents';
 import takeMeHome from '../pages/homePage';
+import { getCustomer } from '../api/customerData';
 // import navigationEvents from '../events/navigationEvents';
 
 const startApp = (user) => {
@@ -13,6 +14,9 @@ const startApp = (user) => {
   navBar(user); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   takeMeHome(); // LOAD THE HOME SCREEN
+  getCustomer(0).then((data) => {
+    console.log(data);
+  });
 };
 
 export default startApp;

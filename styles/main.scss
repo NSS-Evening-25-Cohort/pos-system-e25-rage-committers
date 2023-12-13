@@ -13,10 +13,21 @@ body {
   top: 0;
   width: 100%;
 }
+
 .btn-warning{
-  margin:5%;
+  margin: 30px;
+width: 30%;
+}
+
+.btn-info{
+  margin: 30px;
   width: 30%;
 }
+
+.form-control{
+  margin-bottom: 8%;
+}
+
 #nav-logo{
   width: 75px;
 }
@@ -26,4 +37,14 @@ body {
 #navbar-logout-button {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#form-container{
+  margin-top:10%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.create-order-form-label{
+  float: left
 }
