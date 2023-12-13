@@ -1,4 +1,3 @@
-import { render } from 'sass';
 import { getClosedOrders } from '../api/orderData';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
@@ -18,7 +17,7 @@ const revenuePage = () => {
       (accumulator, currentValue) => accumulator + currentValue,
       initialValue,
     );
-    const domString2 = `You're total revenue is $${totalRevenue}`;
+    const domString2 = `Your total revenue is $${totalRevenue}`;
     renderToDOM('#total-revenue', domString2);
   });
 };

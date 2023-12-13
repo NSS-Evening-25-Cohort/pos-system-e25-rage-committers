@@ -2,7 +2,7 @@ import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 import orderTypeDropdown from './orderTypeDropdown';
 
-const createEditOrderPage = (order) => {
+const createEditOrderPage = () => {
   clearDom();
   const domString = `
   <form id="create-order-form" class="mb-4">

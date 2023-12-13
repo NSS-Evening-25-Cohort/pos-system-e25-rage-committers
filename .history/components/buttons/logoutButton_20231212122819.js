@@ -6,7 +6,7 @@ const logoutButton = (user) => {
   console.warn(button);
   button.addEventListener('click', signOut);
 
-  console.log(user); // Log the user object to the console
+
 
   if (user) {
     googleAuthButton.style.display = 'none';
