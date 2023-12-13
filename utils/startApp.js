@@ -14,9 +14,6 @@ const startApp = (user) => {
   navBar(user); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   takeMeHome(); // LOAD THE HOME SCREEN
-  getCustomer(0).then((data) => {
-    console.log(data);
-  });
 };
 
 export default startApp;
