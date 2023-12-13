@@ -11,7 +11,7 @@ const ViewDirectorBasedOnUserAuthStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       startApp();
-      logoutButton();
+      // logoutButton();
     } else {
       loginPage();
     }
