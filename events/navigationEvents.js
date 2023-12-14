@@ -1,5 +1,6 @@
 import { signOut } from '../utils/auth';
 import takeMeHome from '../pages/homePage';
+import createEditOrderPage from '../components/forms/createEditOrderPage';
 
 // navigation events
 const navigationEvents = () => {
@@ -11,6 +12,12 @@ const navigationEvents = () => {
     .addEventListener('click', () => {
       console.warn('user clicked logo');
       takeMeHome();
+    });
+  // CREATE AN ORDER
+  document.querySelector('#create-order')
+    .addEventListener('click', () => {
+      console.warn('user clicked logo');
+      createEditOrderPage();
     });
 };
 
