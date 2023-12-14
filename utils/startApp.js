@@ -11,7 +11,7 @@ const startApp = (user) => {
   formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
   navBar(user); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
-  takeMeHome(); // LOAD THE HOME SCREENl: 'hello',
+  takeMeHome(); // LOAD THE HOME SCREEN
 };
 
 export default startApp;
