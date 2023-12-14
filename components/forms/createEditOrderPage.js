@@ -20,7 +20,7 @@ const createEditOrderPage = () => {
   </div>
   <div id="order-type-dropdown" class="form-group">
   </div>
-  <button type="submit" id="create-order-button" class="btn btn-primary mt-3">Create/Edit Order</button>
+  <button type="submit" id="create-order-button" class="btn btn-success">Create/Edit Order</button>
 </form>`;
   renderToDOM('#form-container', domString);
   orderTypeDropdown();
