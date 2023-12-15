@@ -4,9 +4,8 @@ import domBuilder from '../components/shared/domBuilder';
 import navBar from '../components/shared/navBar';
 import formEvents from '../events/formEvents';
 import takeMeHome from '../pages/homePage';
-import showOrders from '../pages/viewOrdersPage';
+import navigationEvents from '../events/navigationEvents';
 
-// import navigationEvents from '../events/navigationEvents';
 const startApp = (user) => {
   domBuilder(); // BUILD THE DOM
   domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
@@ -14,8 +13,7 @@ const startApp = (user) => {
   navBar(user); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   takeMeHome(); // LOAD THE HOME SCREEN
-
-  // TODO: Put all orders on the DOM on App load
+  navigationEvents(); // ADD THE EVENT LISTENERS TO THE NAVBAR
 };
 
 export default startApp;

@@ -1,7 +1,5 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import loginButton from '../components/buttons/loginButton';
-import logoutButton from '../components/buttons/logoutButton';
 import client from './client';
 import startApp from './startApp';
 import loginPage from '../pages/loginPage';
@@ -11,7 +9,7 @@ const ViewDirectorBasedOnUserAuthStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       startApp();
-      logoutButton();
+      // logoutButton();
     } else {
       loginPage();
     }
