@@ -1,24 +1,36 @@
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
+import { getSingleCustomer } from '../api/customerData';
 
 const showOrders = (array) => {
   clearDom();
+  const renderOrderCards = (domStringPlus) => {
+    renderToDOM('#order-container', domStringPlus);
+  };
 
   let domString = '';
-  array.forEach((item) => {
-    domString += `
-      <div class="card">
-        <img class="card-img-top" src=${item.name} alt=${item.order_status} style="height: 80px;">
-        <div class="card-body" style="height: 50px;">
-          <h5 class="card-title">${item.order_type}</h5>
-            <hr>
-            <i class="btn btn-success fas fa-eye" id="view-order-btn--${item.firebaseKey}"></i>
-            <i id="edit-order-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
-            <i id="delete-order-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
+  array.forEach((order) => {
+    getSingleCustomer(order.customer_id).then((customer) => {
+      const orderTypeFormatted = order.order_type.replace('_', '-');
+      domString
+      += `<div class="view-orders-container">
+      <div class="card" style="width: 17rem; height: ">
+        <div class="card-body">
+          <h5 class="card-title">${customer.customer_name}</h5>
+          <p class="card-text"><b>Order Status:</b>  ${order.order_status}</p>
+          <p class="card-text"><b>Customer Phone No:</b>  ${customer.customer_phone_no}</p>
+          <p class="card-text"><b>Customer Email:</b>  ${customer.customer_email}</p>
+          <p class="card-text"><b>Order Type:</b>  ${orderTypeFormatted}</p>
+          <div class="view-order-action-row">
+            <a href="#" id="edit-order--${order.firebaseKey}" class="card-link">Edit Order</a>
+            <a href="#" id="delete-order--${order.firebaseKey}" class="card-link-delete">Delete Order</a>
+          </div>
         </div>
-      </div>`;
+      </div>
+    </div>`;
+      renderOrderCards(domString);
+    });
   });
-  renderToDOM('#order-container', domString);
 };
 
 export default showOrders;
