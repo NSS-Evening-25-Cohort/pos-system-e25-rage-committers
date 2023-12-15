@@ -1,6 +1,25 @@
 import client from '../utils/client';
 
 const endpoint = client.databaseURL;
+// GET ORDERS
+const getOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 // CREATE NEW ORDER
 const createNewOrder = (newOrderPayload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
@@ -68,5 +87,5 @@ const getClosedOrders = () => new Promise((resolve, reject) => {
 });
 
 export {
-  getClosedOrders, createNewOrder, updateOrder, getSingleOrder
+  getClosedOrders, createNewOrder, updateOrder, getSingleOrder, getOrders
 };
