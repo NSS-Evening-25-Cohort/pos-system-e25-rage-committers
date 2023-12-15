@@ -1,4 +1,4 @@
-import getClosedOrders from '../api/orderData';
+import { getClosedOrders } from '../api/orderData';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 

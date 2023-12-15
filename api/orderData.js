@@ -67,4 +67,6 @@ const getClosedOrders = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getClosedOrders;
+export {
+  getClosedOrders, createNewOrder, updateOrder, getSingleOrder
+};
