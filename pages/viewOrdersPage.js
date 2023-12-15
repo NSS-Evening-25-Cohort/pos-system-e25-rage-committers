@@ -22,8 +22,13 @@ const showOrders = (array) => {
           <p class="card-text"><b>Customer Email:</b>  ${customer.customer_email}</p>
           <p class="card-text"><b>Order Type:</b>  ${orderTypeFormatted}</p>
           <div class="view-order-action-row">
-            <a href="#" id="edit-order--${order.firebaseKey}" class="card-link">Edit Order</a>
-            <a href="#" id="delete-order--${order.firebaseKey}" class="card-link-delete">Delete Order</a>
+            <div class="details-edit">
+              <a href="#" id="details-order--${order.firebaseKey}" class="card-link-details">Edit</a>
+              <a href="#" id="edit-order--${order.firebaseKey}" class="card-link-edit">Details</a>
+              </div>
+            <div class="details-delete">
+              <a href="#" id="delete-order--${order.firebaseKey}" class="card-link-delete">Delete</a>
+            </div>
           </div>
         </div>
       </div>

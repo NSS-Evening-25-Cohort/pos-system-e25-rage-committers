@@ -84,11 +84,29 @@ width: 30%;
 .view-order-action-row{
   display: flex;
   justify-content: center;
-  gap: 10%;
+  gap: 38%;
+}
+
+.details-edit{
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 20%;
+}
+
+.card-link-details{
+  color: rgb(0, 164, 218);
+  text-decoration: none;
+}
+
+.card-link-edit{
+  color: rgb(222, 0, 222);
+  text-decoration: none;
 }
 
 .card-link-delete{
-  color: rgb(186, 2, 2)
+  color: rgb(186, 2, 2);
+  text-decoration: none;
 }
 
 // display: grid;
