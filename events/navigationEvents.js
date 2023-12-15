@@ -1,6 +1,8 @@
 import { signOut } from '../utils/auth';
 import takeMeHome from '../pages/homePage';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
+import showOrders from '../pages/viewOrdersPage';
+import { getOrders } from '../api/orderData';
 
 // navigation events
 const navigationEvents = () => {
@@ -10,14 +12,17 @@ const navigationEvents = () => {
   // HOME BUTTON
   document.querySelector('#nav-logo')
     .addEventListener('click', () => {
-      console.warn('user clicked logo');
       takeMeHome();
     });
   // CREATE AN ORDER
   document.querySelector('#create-order')
     .addEventListener('click', () => {
-      console.warn('user clicked logo');
       createEditOrderPage();
+    });
+  // VIEW ORDERS
+  document.querySelector('#view-orders')
+    .addEventListener('click', () => {
+      getOrders().then(showOrders);
     });
 };
 

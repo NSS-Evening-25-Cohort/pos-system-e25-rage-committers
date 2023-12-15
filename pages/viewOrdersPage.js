@@ -1,10 +1,6 @@
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
-const emptyOrders = () => {
-  const domString = '<h1>No Orders</h1>';
-  renderToDOM('#store', domString);
-};
 const showOrders = (array) => {
   clearDom();
 
@@ -12,8 +8,8 @@ const showOrders = (array) => {
   array.forEach((item) => {
     domString += `
       <div class="card">
-        <img class="card-img-top" src=${item.name} alt=${item.order_status} style="height: 400px;">
-        <div class="card-body" style="height: 180px;">
+        <img class="card-img-top" src=${item.name} alt=${item.order_status} style="height: 80px;">
+        <div class="card-body" style="height: 50px;">
           <h5 class="card-title">${item.order_type}</h5>
             <hr>
             <i class="btn btn-success fas fa-eye" id="view-order-btn--${item.firebaseKey}"></i>
@@ -22,7 +18,7 @@ const showOrders = (array) => {
         </div>
       </div>`;
   });
-  renderToDOM('#store', domString);
+  renderToDOM('#order-container', domString);
 };
 
-export { showOrders, emptyOrders };
+export default showOrders;
