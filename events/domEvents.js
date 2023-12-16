@@ -1,6 +1,4 @@
-import revenuePage from '../pages/revenuePage';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
-import closeOrderForm from '../components/forms/closeOrderForm';
 import showOrders from '../pages/viewOrdersPage';
 import { getOrders } from '../api/orderData';
 

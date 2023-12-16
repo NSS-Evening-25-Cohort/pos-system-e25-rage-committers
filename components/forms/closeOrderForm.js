@@ -1,11 +1,7 @@
-import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 
 const closeOrderForm = () => {
-  clearDom();
-  const orderTotal = ''; // TODO: get order total
   const domString = `
-  total: ${orderTotal}
   <form>
     <div class="mb-3">
       <label for="tip-amount" class="form-label">Tip Amount</label>

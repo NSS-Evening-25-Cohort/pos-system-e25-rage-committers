@@ -15,4 +15,4 @@ const closeOrder = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default closeOrder;
+export { closeOrder, endpoint };

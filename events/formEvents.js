@@ -2,11 +2,11 @@ import {
   createNewCustomer,
   updateCustomer,
 } from '../api/customerData';
-import { createNewOrder, updateOrder } from '../api/orderData';
+import { createNewOrder, updateOrder, getOrders } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
+import showOrders from '../pages/viewOrdersPage';
 import closeOrder from '../utils/closeOrder';
-// TODO: import view and get order funcitons
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -43,9 +43,7 @@ const formEvents = () => {
         });
     }
     if (e.target.id.includes('submit-close')) {
-      // make post api call to add info from closeOrderForm to database
       const [, firebaseKey] = e.target.id.split('--');
-      // go into object using firebase key and change status to closed
       const payload = {
         orer_status: 'closed',
         tip_amount: document.querySelector('#tip-amount').value,
@@ -54,9 +52,9 @@ const formEvents = () => {
         firebaseKey,
       };
 
-      // closeOrder(payload).then(() => {
-      // TODO:  getOrders().then(viewOrders); // these arent real functions yet
-      // });
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
     }
   });
 };
