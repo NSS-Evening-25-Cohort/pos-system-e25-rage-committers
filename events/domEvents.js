@@ -24,9 +24,9 @@ const domEvents = () => {
       createEditItemForm(firebaseKey, {});
     }
     if (e.target.id.includes('edit-item')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleItem(firebaseKey).then((data) => {
-        createEditItemForm('', data);
+      const [, itemFirebaseKey, orderFirebaseKey] = e.target.id.split('--');
+      getSingleItem(itemFirebaseKey).then((data) => {
+        createEditItemForm(orderFirebaseKey, data);
       });
     }
 

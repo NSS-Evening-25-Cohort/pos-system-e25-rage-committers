@@ -80,7 +80,7 @@ width: 30%;
 
 #order-container{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18.1rem, 1fr));
   grid-row-gap: 1px;
   place-items: center;
 }
@@ -91,19 +91,35 @@ width: 30%;
   gap: 10%;
 }
 
-.card-link-delete{
-  color: rgb(186, 2, 2)
+.view-order-action-row{
+  display: flex;
+  justify-content: center;
+  gap: 38%;
 }
 
-// display: grid;
-// grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
-// grid-auto-rows: auto;
-// grid-row-gap: 1px;
-// place-items: center;
+.details-edit{
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 20%;
+}
+
+.card-link-details{
+  color: rgb(0, 164, 218);
+  text-decoration: none;
+}
+
+.card-link-edit{
+  color: rgb(222, 0, 222);
+  text-decoration: none;
+}
+
+.card-link-delete{
+  color: rgb(186, 2, 2);
+  text-decoration: none;
+}
 
 //ORDER ITEM PAGE
-
-
 //REVENUE PAGE
 #rev-header{
   margin-top: 20%;
