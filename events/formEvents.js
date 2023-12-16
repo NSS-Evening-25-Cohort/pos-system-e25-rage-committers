@@ -7,7 +7,7 @@ import {
 } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
-import { updateItem, createNewItem, getSingleItem } from '../api/itemData';
+import { updateItem, createNewItem } from '../api/itemData';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
