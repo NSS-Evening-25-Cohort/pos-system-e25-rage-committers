@@ -2,10 +2,12 @@ import {
   createNewCustomer,
   updateCustomer,
 } from '../api/customerData';
-import { createNewOrder, updateOrder, getOrders } from '../api/orderData';
+import {
+  createNewOrder, updateOrder,
+} from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
-import showOrders from '../pages/viewOrdersPage';
+import { updateItem, createNewItem, getSingleItem } from '../api/itemData';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -13,7 +15,7 @@ const formEvents = () => {
     if (e.target.id === 'create-order-form') {
       e.preventDefault();
       const customerPayload = {
-        customer_name: document.getElementById('order-name').value,
+        customer_name: document.getElementById('customer-name').value,
         customer_phone_no: document.getElementById('customer-phone').value,
         customer_email: document.getElementById('customer-email').value,
       };
@@ -41,19 +43,41 @@ const formEvents = () => {
             });
         });
     }
-  });
-  document.addEventListener('click', (e) => {
-    if (e.target.id.includes('update-order')) {
+
+    // CREATE -- CREATE/EDIT ITEM FORM
+    if (e.target.id.includes('create-item')) {
+      e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
-        orderName: document.querySelector('#order-name').value,
-        customerPhone: document.querySelector('#customer-phone').value,
-        customerEmail: document.querySelector('#customer-email').value,
-        firebaseKey,
+        item_name: document.getElementById('item-name').value,
+        item_price: document.getElementById('item-price').value,
+        order_id: firebaseKey
       };
-      updateOrder(payload).then(() => {
-        getOrders().then(showOrders);
-      });
+      createNewItem(payload)
+        .then((data) => {
+          const patchPayload = { firebaseKey: data.name };
+          updateItem(patchPayload)
+            .then(() => {
+              orderDetails(firebaseKey);
+            });
+        });
+    }
+    // UPDATE -- CREATE/EDIT ITEM FORM
+    if (e.target.id.includes('update-item')) {
+      e.preventDefault();
+      const [, itemFirebaseKey] = e.target.id.split('--');
+      const payload = {
+        item_name: document.getElementById('item-name').value,
+        item_price: document.getElementById('item-price').value,
+        firebaseKey: itemFirebaseKey
+      };
+      updateItem(payload)
+        .then(() => {
+          getSingleItem(itemFirebaseKey)
+            .then((data) => {
+              orderDetails(data.order_id);
+            });
+        });
     }
   });
 };

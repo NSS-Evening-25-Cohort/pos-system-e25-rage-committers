@@ -6,7 +6,7 @@ const takeMeHome = () => {
   const domString = `
     <div class="homepage-button-container">
       <div class="home-page-btns">
-        <button type="button" id= "view-orders-button" class="btn btn-success">View Orders</button>
+        <button type="button" id="view-orders-button" class="btn btn-success">View Orders</button>
       </div>
       <div class="home-page-btns">
         <button type="button" id="view-revenue-button" class="btn btn-warning">View Revenue</button>

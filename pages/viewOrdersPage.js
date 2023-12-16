@@ -12,8 +12,6 @@ const showOrders = (array) => {
   array.forEach((order) => {
     getSingleCustomer(order.customer_id)
       .then((customer) => {
-        // eslint-disable-next-line
-        console.log(customer); // Log the returned customer object
         const orderTypeFormatted = order.order_type.replace('_', '-');
         domString
         += `<div class="view-orders-container">
