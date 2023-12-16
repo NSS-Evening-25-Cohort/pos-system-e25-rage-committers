@@ -2,21 +2,21 @@ import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 import orderTypeDropdown from './orderTypeDropdown';
 
-const createEditOrderPage = () => {
+const createEditOrderPage = (obj) => {
   clearDom();
   const domString = `
-  <form id="create-order-form" class="mb-4">
+  <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
   <div class="form-group">
-    <label for="image" class="create-order-form-label">Order Name</label>
-    <input type="text" class="form-control" id="order-name" value="" >
+      <label for="order-name">Customer Name</label>
+      <input type="text" class="form-control" id="customer-name" placeholder="Customer Name" value="${obj.customerName || ''}" required>
+    </div>
+    <div class="form-group">
+    <label for="customer-phone">Customer Phone</label>
+    <input type="text" class="form-control" id="customer-phone" placeholder="Customer Phone" value="${obj.customer_phone_no || ''}" required>
   </div>
   <div class="form-group">
-    <label for="image" class="create-order-form-label">Customer Phone No.</label>
-    <input type="text" class="form-control" id="customer-phone" value="" >
-  </div>
-  <div class="form-group">
-    <label for="title"  class="create-order-form-label">Customer Email</label>
-    <input type="email" class="form-control" id="customer-email" aria-describedby="Email" value="" >
+      <label for="customer_email">Customer Email</label>
+      <input type="text" class="customer_email" id="customer_email" placeholder="Customer Email" value="${obj.customer_email || ''}" required>
   </div>
   <div id="order-type-dropdown" class="form-group">
   </div>
@@ -25,5 +25,4 @@ const createEditOrderPage = () => {
   renderToDOM('#form-container', domString);
   orderTypeDropdown();
 };
-
 export default createEditOrderPage;

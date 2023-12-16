@@ -2,9 +2,10 @@ import {
   createNewCustomer,
   updateCustomer,
 } from '../api/customerData';
-import { createNewOrder, updateOrder } from '../api/orderData';
+import { createNewOrder, updateOrder, getOrders } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
+import showOrders from '../pages/viewOrdersPage';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -29,7 +30,7 @@ const formEvents = () => {
                 tip_amount: '',
                 total_amount: '',
                 order_status: 'open',
-                time_submitted: getTheTime()
+                time_submitted: getTheTime(),
               };
               createNewOrder(orderPayload)
                 .then((orderData) => {
@@ -41,6 +42,19 @@ const formEvents = () => {
         });
     }
   });
+  document.addEventListener('click', (e) => {
+    if (e.target.id.includes('update-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        orderName: document.querySelector('#order-name').value,
+        customerPhone: document.querySelector('#customer-phone').value,
+        customerEmail: document.querySelector('#customer-email').value,
+        firebaseKey,
+      };
+      updateOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+  });
 };
-
 export default formEvents;
