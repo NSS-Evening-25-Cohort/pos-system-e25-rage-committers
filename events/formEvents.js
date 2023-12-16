@@ -12,7 +12,6 @@ const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
     // CREATE A NEW ORDER
     if (e.target.id === 'create-order-form') {
-      console.log('form submitted');
       e.preventDefault();
       const customerPayload = {
         customer_name: document.getElementById('order-name').value,

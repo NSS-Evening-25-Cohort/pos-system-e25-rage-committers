@@ -8,6 +8,7 @@ const revenuePage = () => {
   <div id="revenue-page">
     <div id="rev-header">REVENUE</div>
     <div id="total-revenue"></div>
+    <div id="line-chart"></div>
     <div id="total-tips"></div>
     <div id="order-types">
       <div id="total-callin"></div>
@@ -54,6 +55,7 @@ const revenuePage = () => {
     const domString3 = `TOTAL TIPS: $${totalTips}`;
     renderToDOM('#total-tips', domString3);
   });
+
   // CALCULATE ALL ORDER TYPES
   getClosedOrders().then((closedOrderArray) => {
     let walkInCounter = 0;

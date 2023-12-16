@@ -1,6 +1,27 @@
 import client from '../utils/client';
 
 const endpoint = client.databaseURL;
+// GET SINGLE CUSTOMER
+const getSingleCustomer = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/customers.json?orderBy="firebaseKey"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const objectify = Object.values(data);
+        const customer = objectify[0];
+        resolve(customer);
+      } else {
+        resolve({});
+      }
+    })
+    .catch(reject);
+});
+
 // CREATE NEW CUSTOMER
 const createNewCustomer = (newCustomerPayload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/customers.json`, {
@@ -29,4 +50,4 @@ const updateCustomer = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { createNewCustomer, updateCustomer };
+export { createNewCustomer, updateCustomer, getSingleCustomer };
