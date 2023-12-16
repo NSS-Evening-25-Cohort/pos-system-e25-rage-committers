@@ -3,9 +3,11 @@ import createEditItemForm from '../components/forms/createEditItemForm';
 import showOrders from '../pages/viewOrdersPage';
 import { getOrders, getSingleOrder, deleteOrder } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
+import { getSingleItem } from '../api/itemData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
+    // HOME PAGE BUTTON CLICKS
     if (e.target.id === 'view-orders-button') {
       getOrders().then(showOrders);
     }
@@ -15,10 +17,20 @@ const domEvents = () => {
     if (e.target.id === 'view-revenue-button') {
       revenuePage();
     }
+
+    // ORDER DETAILS PAGE
     if (e.target.id.includes('add-items-button')) {
       const [, firebaseKey] = e.target.id.split('--');
       createEditItemForm(firebaseKey, {});
     }
+    if (e.target.id.includes('edit-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((data) => {
+        createEditItemForm('', data);
+      });
+    }
+
+    // GO TO PAYMENT
     if (e.target.id.includes('close-order')) {
       // const [, firebaseKey] = e.target.id.split('--');
       // TATIANNA CALL THIS FUNCTION TO RENDER THE CLOSE ORDER PAGE
@@ -27,12 +39,12 @@ const domEvents = () => {
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      console.log(firebaseKey);
       getSingleOrder(firebaseKey)
         .then((orderObj) => {
-          createEditItemForm(orderObj);
+          createEditOrderPage(orderObj);
         });
     }
+
     if (e.target.id.includes('create-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey)

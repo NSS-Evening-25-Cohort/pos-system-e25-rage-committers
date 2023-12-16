@@ -48,4 +48,25 @@ const updateItem = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrderItems, updateItem, createNewItem };
+// GET SINGLE ITEM
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.assign(data));
+      } else {
+        resolve({});
+      }
+    })
+    .catch(reject);
+});
+
+export {
+  getOrderItems, updateItem, createNewItem, getSingleItem
+};

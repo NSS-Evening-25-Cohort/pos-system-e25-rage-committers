@@ -3,18 +3,16 @@ import {
   updateCustomer,
 } from '../api/customerData';
 import {
-  createNewOrder, updateOrder, getOrders, getSingleOrder
+  createNewOrder, updateOrder,
 } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
-import showOrders from '../pages/viewOrdersPage';
-import { updateItem, createNewItem } from '../api/itemData';
+import { updateItem, createNewItem, getSingleItem } from '../api/itemData';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
     // CREATE A NEW ORDER
     if (e.target.id === 'create-order-form') {
-      console.log('creating new order');
       e.preventDefault();
       const customerPayload = {
         customer_name: document.getElementById('customer-name').value,
@@ -50,7 +48,6 @@ const formEvents = () => {
     if (e.target.id.includes('create-item')) {
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
-      console.log(firebaseKey);
       const payload = {
         item_name: document.getElementById('item-name').value,
         item_price: document.getElementById('item-price').value,
@@ -66,20 +63,22 @@ const formEvents = () => {
         });
     }
     // UPDATE -- CREATE/EDIT ITEM FORM
-    // if (e.target.id.includes('update-item')) {
-    //   console.log('update item');
-    //   e.preventDefault();
-    //   const [, firebaseKey] = e.target.id.split('--');
-    //   const payload = {
-    //     orderName: document.querySelector('#order-name').value,
-    //     customerPhone: document.querySelector('#customer-phone').value,
-    //     customerEmail: document.querySelector('#customer-email').value,
-    //     firebaseKey,
-    //   };
-    //   updateOrder(payload).then(() => {
-    //     // getOrders().then(showOrders);
-    //   });
-    // }
+    if (e.target.id.includes('update-item')) {
+      e.preventDefault();
+      const [, itemFirebaseKey] = e.target.id.split('--');
+      const payload = {
+        item_name: document.getElementById('item-name').value,
+        item_price: document.getElementById('item-price').value,
+        firebaseKey: itemFirebaseKey
+      };
+      updateItem(payload)
+        .then(() => {
+          getSingleItem(itemFirebaseKey)
+            .then((data) => {
+              orderDetails(data.order_id);
+            });
+        });
+    }
   });
 };
 export default formEvents;

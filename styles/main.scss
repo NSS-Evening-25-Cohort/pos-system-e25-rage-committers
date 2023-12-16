@@ -17,6 +17,10 @@ body {
   opacity: 85%;
 }
 
+.create-order-form-label{
+  text-align: left;
+}
+
 //NAVBAR
 #nav-logo{
   width: 75px;
@@ -84,29 +88,11 @@ width: 30%;
 .view-order-action-row{
   display: flex;
   justify-content: center;
-  gap: 38%;
-}
-
-.details-edit{
-  display: flex;
-  justify-content: left;
-  align-items: flex-start;
-  gap: 20%;
-}
-
-.card-link-details{
-  color: rgb(0, 164, 218);
-  text-decoration: none;
-}
-
-.card-link-edit{
-  color: rgb(222, 0, 222);
-  text-decoration: none;
+  gap: 10%;
 }
 
 .card-link-delete{
-  color: rgb(186, 2, 2);
-  text-decoration: none;
+  color: rgb(186, 2, 2)
 }
 
 // display: grid;
@@ -133,4 +119,13 @@ width: 30%;
 
 #total-tips{
   margin: 4%
+}
+
+//RENDER ORDER ITEMS
+#item-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
 }
