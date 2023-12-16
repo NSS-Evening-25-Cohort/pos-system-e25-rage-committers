@@ -6,6 +6,7 @@ import { createNewOrder, updateOrder, getOrders } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
 import showOrders from '../pages/viewOrdersPage';
+import { updateItem, createNewItem } from '../api/itemData';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -42,22 +43,41 @@ const formEvents = () => {
             });
         });
     }
-  });
 
-  document.addEventListener('click', (e) => {
-    if (e.target.id.includes('update-order')) {
+    // CREATE -- CREATE/EDIT ITEM FORM
+    if (e.target.id.includes('create-item')) {
+      console.log('create-item');
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
+      console.log(firebaseKey);
       const payload = {
-        orderName: document.querySelector('#order-name').value,
-        customerPhone: document.querySelector('#customer-phone').value,
-        customerEmail: document.querySelector('#customer-email').value,
-        firebaseKey,
+        item_name: document.getElementById('item-name').value,
+        item_price: document.getElementById('item-price').value,
+        order_id: firebaseKey
       };
-      updateOrder(payload).then(() => {
-        // getOrders().then(showOrders);
-      });
+      console.log(payload);
+      // createNewItem(payload);
+      // .then((data) => {
+      //   const patchPayload = { firebaseKey: data.name };
+      //   updateItem(patchPayload);
+      // getOrders().then(showOrders);
+      // });
     }
+    // UPDATE -- CREATE/EDIT ITEM FORM
+    // if (e.target.id.includes('update-item')) {
+    //   console.log('update item');
+    //   e.preventDefault();
+    //   const [, firebaseKey] = e.target.id.split('--');
+    //   const payload = {
+    //     orderName: document.querySelector('#order-name').value,
+    //     customerPhone: document.querySelector('#customer-phone').value,
+    //     customerEmail: document.querySelector('#customer-email').value,
+    //     firebaseKey,
+    //   };
+    //   updateOrder(payload).then(() => {
+    //     // getOrders().then(showOrders);
+    //   });
+    // }
   });
 };
 export default formEvents;

@@ -15,6 +15,10 @@ const domEvents = () => {
     if (e.target.id === 'view-revenue-button') {
       revenuePage();
     }
+    if (e.target.id.includes('add-items-button')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      createEditItemForm(firebaseKey, {});
+    }
     if (e.target.id.includes('close-order')) {
       // const [, firebaseKey] = e.target.id.split('--');
       // TATIANNA CALL THIS FUNCTION TO RENDER THE CLOSE ORDER PAGE

@@ -1,5 +1,5 @@
 import renderToDOM from './renderToDom';
-import getOrderItems from '../api/itemData';
+import { getOrderItems } from '../api/itemData';
 
 const renderOrderItems = (firebaseKey) => {
   getOrderItems(firebaseKey).then((data) => {
