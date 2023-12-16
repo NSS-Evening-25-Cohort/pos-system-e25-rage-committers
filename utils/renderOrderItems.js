@@ -2,7 +2,7 @@ import getOrderItems from '../api/itemData';
 import renderToDOM from './renderToDom';
 
 const renderOrderItems = (firebaseKey) => {
-  getOrderItems('order3').then((data) => {
+  getOrderItems(firebaseKey).then((data) => {
     if (data.length > 0) {
       let domString = '';
       data.forEach((item) => {

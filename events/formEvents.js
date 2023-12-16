@@ -13,7 +13,7 @@ const formEvents = () => {
     if (e.target.id === 'create-order-form') {
       e.preventDefault();
       const customerPayload = {
-        customer_name: document.getElementById('order-name').value,
+        customer_name: document.getElementById('customer-name').value,
         customer_phone_no: document.getElementById('customer-phone').value,
         customer_email: document.getElementById('customer-email').value,
       };
@@ -42,8 +42,10 @@ const formEvents = () => {
         });
     }
   });
+
   document.addEventListener('click', (e) => {
     if (e.target.id.includes('update-order')) {
+      e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         orderName: document.querySelector('#order-name').value,
@@ -52,7 +54,7 @@ const formEvents = () => {
         firebaseKey,
       };
       updateOrder(payload).then(() => {
-        getOrders().then(showOrders);
+        // getOrders().then(showOrders);
       });
     }
   });

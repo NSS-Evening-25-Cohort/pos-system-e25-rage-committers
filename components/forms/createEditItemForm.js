@@ -2,7 +2,7 @@ import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 import orderTypeDropdown from './orderTypeDropdown';
 
-const createEditItemPage = (obj = {}) => {
+const createEditItemForm = (obj = {}) => {
   clearDom();
   const domString = `
   <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="mb-4">
@@ -19,4 +19,4 @@ const createEditItemPage = (obj = {}) => {
   orderTypeDropdown();
 };
 
-export default createEditItemPage;
+export default createEditItemForm;
