@@ -2,7 +2,9 @@ import {
   createNewCustomer,
   updateCustomer,
 } from '../api/customerData';
-import { createNewOrder, updateOrder, getOrders } from '../api/orderData';
+import {
+  createNewOrder, updateOrder, getOrders, getSingleOrder
+} from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
 import showOrders from '../pages/viewOrdersPage';
@@ -46,7 +48,6 @@ const formEvents = () => {
 
     // CREATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('create-item')) {
-      console.log('create-item');
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       console.log(firebaseKey);
@@ -55,13 +56,14 @@ const formEvents = () => {
         item_price: document.getElementById('item-price').value,
         order_id: firebaseKey
       };
-      console.log(payload);
-      // createNewItem(payload);
-      // .then((data) => {
-      //   const patchPayload = { firebaseKey: data.name };
-      //   updateItem(patchPayload);
-      // getOrders().then(showOrders);
-      // });
+      createNewItem(payload)
+        .then((data) => {
+          const patchPayload = { firebaseKey: data.name };
+          updateItem(patchPayload)
+            .then(() => {
+              orderDetails(firebaseKey);
+            });
+        });
     }
     // UPDATE -- CREATE/EDIT ITEM FORM
     // if (e.target.id.includes('update-item')) {
