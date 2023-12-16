@@ -12,7 +12,7 @@ const renderOrderItems = (firebaseKey) => {
         <h5 class="card-title">${item.item_name}</h5>
         <h6 class="card-price mb-2 text-muted">PRICE: ${item.item_price}</h6>
         <div id="orderItem-button-row">
-          <a href="#" id=edit-item--${item.firebaseKey} class="card-link">Edit Item</a>
+          <a href="#" id=edit-item--${item.firebaseKey}--${firebaseKey} class="card-link">Edit Item</a>
           <a href="#" id=delete-item--${item.firebaseKey} class="card-link">Delete Item</a>
         </div>
       </div>

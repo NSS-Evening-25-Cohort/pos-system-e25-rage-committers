@@ -65,19 +65,14 @@ const formEvents = () => {
     // UPDATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('update-item')) {
       e.preventDefault();
-      const [, itemFirebaseKey] = e.target.id.split('--');
+      const [, itemFirebaseKey, orderFirebaseKey] = e.target.id.split('--');
       const payload = {
         item_name: document.getElementById('item-name').value,
         item_price: document.getElementById('item-price').value,
         firebaseKey: itemFirebaseKey
       };
       updateItem(payload)
-        .then(() => {
-          getSingleItem(itemFirebaseKey)
-            .then((data) => {
-              orderDetails(data.order_id);
-            });
-        });
+        .then(orderDetails(orderFirebaseKey));
     }
   });
 };
