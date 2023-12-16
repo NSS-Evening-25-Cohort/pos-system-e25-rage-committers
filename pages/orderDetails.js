@@ -11,7 +11,6 @@ const orderDetails = (firebaseKey) => {
   renderOrderItems(firebaseKey);
   const buttonRow = `
   <div id="orderItem-button-row">
-  <button id="add-items-button--${firebaseKey}" type="button" class="btn btn-success">Add Items</button>
 </div>
 </div>
   </div>`;
