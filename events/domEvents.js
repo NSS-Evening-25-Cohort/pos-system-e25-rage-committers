@@ -1,7 +1,7 @@
 import revenuePage from '../pages/revenuePage';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import showOrders from '../pages/viewOrdersPage';
-import { getOrders, getSingleOrder } from '../api/orderData';
+import { getOrders, deleteOrder } from '../api/orderData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -52,6 +52,11 @@ const domEvents = () => {
           console.log(orderObj); // Log the returned order object
           createEditOrderPage(orderObj);
         });
+    if (e.target.id.includes('delete-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      deleteOrder(firebaseKey).then(() => {
+        getOrders().then(showOrders);
+      });
     }
   });
 };
