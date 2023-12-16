@@ -20,15 +20,20 @@ const renderOrderItems = (firebaseKey) => {
 `;
       });
       renderToDOM('#item-container', domString);
+      const domString3 = `
+        <button id="add-items-button--${firebaseKey}" type="button" class="btn    btn-success">Add Items</button>
+        <button id="close-order--${firebaseKey}" "type="button" class="btn btn-primary">Go To Payment</button>`;
+      renderToDOM('#form-container', domString3);
     } else {
-      // eslint-disable-next-line
-      const domString = 
-    `<div id='empty-item-form'>
-    <div id='no-items-warning'>There are no items associated with this order.
+      const domString = `
+      <div id='empty-item-form'>
+      <div id='no-items-warning'>There are no items associated with this order.
+      </div>
     </div>
-</div>
-    </div>`;
+    `;
       renderToDOM('#item-container', domString);
+      const domString2 = `<button id="add-items-button--${firebaseKey}" type="button" class="btn btn-success">Add Items</button>`;
+      renderToDOM('#form-container', domString2);
     }
   });
 };
