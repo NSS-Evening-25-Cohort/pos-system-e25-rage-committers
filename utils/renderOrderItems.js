@@ -29,6 +29,8 @@ const renderOrderItems = (firebaseKey) => {
 </div>
     </div>`;
       renderToDOM('#item-container', domString);
+      const domString2 = `<button id="add-items-button--${firebaseKey}" type="button" class="btn btn-success">Add Items</button>`;
+      renderToDOM('#orderItem-button-row', domString2);
     }
   });
 };
