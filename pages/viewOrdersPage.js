@@ -1,7 +1,5 @@
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
-import { getSingleCustomer } from '../api/customerData';
-import mergeOrdersMasterArray from '../api/mergeData';
 
 const showOrders = (array) => {
   clearDom();
@@ -10,26 +8,11 @@ const showOrders = (array) => {
   };
 
   let domString = '';
-  mergeOrdersMasterArray()
-    .then((totalArray) => {
-      const { ordersArray } = totalArray;
-      const { customersArray } = totalArray;
-      // eslint-disable-next-line
-    const mergedArray = ordersArray.map(({ customer_id, ...rest }) => (
-        {
-          customer_id,
-          ...Object.assign({}, ...customersArray.filter((customer) => customer.firebaseKey
-          // eslint-disable-next-line
-          === customer_id)),
-          ...rest
-        }
-      ));
-      console.log(mergedArray);
-      mergedArray.forEach((order) => {
-        const orderTypeFormatted = order.order_type.replace('_', '-');
-        domString
+  array.forEach((order) => {
+    const orderTypeFormatted = order.order_type.replace('_', '-');
+    domString
             += `<div class="view-orders-container">
-            <div class="card" style="width: 17rem; height: ">
+            <div class="card" style="width: 17rem; ${order.order_status === 'closed' ? 'background: rgb(186, 186, 186)' : ''}">
               <div class="card-body">
                 <h5 class="card-title">${order.customer_name}</h5>
                 <p class="card-text"><b>Order Status:</b>  ${order.order_status}</p>
@@ -48,9 +31,8 @@ const showOrders = (array) => {
             </div>
           </div>
         </div>`;
-        renderOrderCards(domString);
-      });
-    });
+    renderOrderCards(domString);
+  });
 };
 
 export default showOrders;
