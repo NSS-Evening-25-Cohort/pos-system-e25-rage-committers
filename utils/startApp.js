@@ -5,6 +5,7 @@ import navBar from '../components/shared/navBar';
 import formEvents from '../events/formEvents';
 import takeMeHome from '../pages/homePage';
 import navigationEvents from '../events/navigationEvents';
+import mergeOrdersMasterArray from '../api/mergeData';
 
 const startApp = (user) => {
   domBuilder(); // BUILD THE DOM
@@ -14,6 +15,22 @@ const startApp = (user) => {
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   takeMeHome(); // LOAD THE HOME SCREEN
   navigationEvents(); // ADD THE EVENT LISTENERS TO THE NAVBAR
+  mergeOrdersMasterArray()
+    .then((totalArray) => {
+      const { ordersArray } = totalArray;
+      const { customersArray } = totalArray;
+      // eslint-disable-next-line
+    const mergedArray = ordersArray.map(({ customer_id, ...rest }) => (
+        {
+          customer_id,
+          ...Object.assign({}, ...customersArray.filter((customer) => customer.firebaseKey
+          // eslint-disable-next-line
+          === customer_id)),
+          ...rest
+        }
+      ));
+      console.log(mergedArray);
+    });
 };
 
 export default startApp;
