@@ -1,7 +1,7 @@
 import revenuePage from '../pages/revenuePage';
 import createEditItemForm from '../components/forms/createEditItemForm';
 import showOrders from '../pages/viewOrdersPage';
-import { getOrders, getSingleOrder, deleteOrder } from '../api/orderData';
+import { getSingleOrder, deleteOrder } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
 import mergeOrdersCustomersArray from '../api/mergeData';
@@ -57,7 +57,8 @@ const domEvents = () => {
     if (e.target.id.includes('delete-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       deleteOrder(firebaseKey).then(() => {
-        getOrders().then(showOrders);
+        mergeOrdersCustomersArray()
+          .then(showOrders);
       });
     }
   });

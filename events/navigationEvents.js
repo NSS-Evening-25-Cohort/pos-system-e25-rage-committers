@@ -2,7 +2,7 @@ import { signOut } from '../utils/auth';
 import takeMeHome from '../pages/homePage';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import showOrders from '../pages/viewOrdersPage';
-import { getOrders } from '../api/orderData';
+import mergeOrdersCustomersArray from '../api/mergeData';
 
 // navigation events
 const navigationEvents = () => {
@@ -22,7 +22,8 @@ const navigationEvents = () => {
   // VIEW ORDERS
   document.querySelector('#view-orders')
     .addEventListener('click', () => {
-      getOrders().then(showOrders);
+      mergeOrdersCustomersArray()
+        .then(showOrders);
     });
 };
 
