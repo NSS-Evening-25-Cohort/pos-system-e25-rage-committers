@@ -4,12 +4,14 @@ import showOrders from '../pages/viewOrdersPage';
 import { getOrders, getSingleOrder, deleteOrder } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
+import mergeOrdersCustomersArray from '../api/mergeData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     // HOME PAGE BUTTON CLICKS
     if (e.target.id === 'view-orders-button') {
-      getOrders().then(showOrders);
+      mergeOrdersCustomersArray()
+        .then(showOrders);
     }
     if (e.target.id === 'create-new-order-form') {
       createEditOrderPage({});

@@ -19,8 +19,8 @@
     "linebreak-style": 0,
     "max-len": [1,600,2],
     "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
-  "no-unused-vars":"off"
-    // "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+  // "no-unused-vars":"off"
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
 
   }
 }
