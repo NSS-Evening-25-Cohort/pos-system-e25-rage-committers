@@ -23,15 +23,15 @@ const revenueFilterBar = () => {
     <div><label for="months">Month</label></div>
      <select id="month" name="" /required'}>
       <option value="">month</option>
-      <option value="1">Jan</option>
-      <option value="2">Feb</option>
-      <option value="3">March</option>
-      <option value="4">April</option>
-      <option value="5">May</option>
-      <option value="6">June</option>
-      <option value="7">July</option>
-      <option value="8">August</option>
-      <option value="9">September</option>
+      <option value="01">Jan</option>
+      <option value="02">Feb</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
       <option value="10">October</option>
       <option value="11">November</option>
       <option value="12">December</option>
@@ -42,15 +42,15 @@ const revenueFilterBar = () => {
   <div><label for="day">Day</label></div>
   <select id="day" name="day">
     <option value="">day</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
     <option value="10">10</option>
     <option value="11">11</option>
     <option value="12">12</option>
@@ -76,6 +76,12 @@ const revenueFilterBar = () => {
   </select>`;
 
   renderToDOM('#day-container', daySelect);
+
+  document.getElementById('view').addEventListener('click', () => {
+    if (document.getElementById('day').value) {
+      document.getElementById('month').setAttribute('required', true);
+    }
+  });
 };
 
 export default revenueFilterBar;

@@ -8,7 +8,7 @@
   "payment_type":"cash",
   "tip_amount":0.10,
   "total_amount":10.69,
-  "time_submitted":"2023-12-13T17:21:14:314"
+  "time_submitted":"2023-07-13T17:21:14:314"
 },
 {
   "firebaseKey":"order2",
@@ -19,7 +19,7 @@
   "payment_type":"card",
   "tip_amount":0.10,
   "total_amount":12.10,
-  "time_submitted":"2023-10-13T17:11:14:200"
+  "time_submitted":"2023-09-02T17:11:14:200"
 },
 {
   "firebaseKey":"order3",
@@ -30,7 +30,7 @@
   "payment_type":"cash",
   "tip_amount":0.15,
   "total_amount":189.15,
-  "time_submitted":"2023-06-25T17:09:21:600"
+  "time_submitted":"2023-09-15T17:09:21:600"
 },
 {
   "firebaseKey":"order4",
@@ -41,7 +41,7 @@
   "payment_type":"crypto",
   "tip_amount":0.15,
   "total_amount":189.15,
-  "time_submitted":"2023-02-08T12:05:21:600"
+  "time_submitted":"2023-11-14T12:05:21:600"
 },
 {
   "firebaseKey":"order5",
@@ -52,7 +52,7 @@
   "payment_type":"card",
   "tip_amount":0.15,
   "total_amount":6.15,
-  "time_submitted":"2023-04-06T20:09:21:600"
+  "time_submitted":"2023-04-25T20:09:21:600"
 },
 {
   "firebaseKey":"order6",
@@ -63,6 +63,6 @@
   "payment_type":"card",
   "tip_amount":0.10,
   "total_amount":43.60,
-  "time_submitted":"2023-01-26T17:09:21:600"
+  "time_submitted":"2023-04-06T17:09:21:600"
 }
 ]

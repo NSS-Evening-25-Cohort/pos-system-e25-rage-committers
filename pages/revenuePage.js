@@ -2,6 +2,7 @@ import { getClosedOrders } from '../api/orderData';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 import revenueFilterBar from '../components/forms/revenueFilterBar';
+import filterRevenue from '../utils/filterRevenue';
 
 const revenuePage = () => {
   clearDom();
@@ -78,6 +79,12 @@ const revenuePage = () => {
     renderToDOM('#total-callin', `TOTAL CALL IN ORDERS: ${callInCounter}`);
     renderToDOM('#total-walkin', `TOTAL WALK IN ORDERS: ${walkInCounter}`);
     renderToDOM('#total-digital', `TOTAL DIGITAL ORDERS: ${digitalCounter}`);
+  });
+
+  //  FILTER REVENUE
+  document.getElementById('view').addEventListener('submit', (e) => {
+    e.preventDefault();
+    filterRevenue();
   });
 };
 
