@@ -1,7 +1,7 @@
 import revenuePage from '../pages/revenuePage';
 import createEditItemForm from '../components/forms/createEditItemForm';
 import showOrders from '../pages/viewOrdersPage';
-import { getSingleOrder, deleteOrder } from '../api/orderData';
+import { getSingleOrder, deleteOrder, getClosedOrders } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
 import mergeOrdersCustomersArray from '../api/mergeData';
@@ -17,7 +17,7 @@ const domEvents = () => {
       createEditOrderPage({});
     }
     if (e.target.id === 'view-revenue-button') {
-      revenuePage();
+      getClosedOrders().then(revenuePage);
     }
 
     // ORDER DETAILS PAGE

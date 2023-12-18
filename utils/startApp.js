@@ -5,6 +5,8 @@ import navBar from '../components/shared/navBar';
 import formEvents from '../events/formEvents';
 import takeMeHome from '../pages/homePage';
 import navigationEvents from '../events/navigationEvents';
+import revenuePage from '../pages/revenuePage';
+import { getClosedOrders } from '../api/orderData';
 
 const startApp = (user) => {
   domBuilder(); // BUILD THE DOM
