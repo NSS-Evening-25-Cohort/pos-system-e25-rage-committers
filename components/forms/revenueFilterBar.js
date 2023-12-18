@@ -3,19 +3,20 @@ import renderToDOM from '../../utils/renderToDom';
 const revenueFilterBar = () => {
   const formContainer = `
        <form id="revenue-filter-bar-form" class="revenue-filter-bar-style">
-          <div id="year-container"></div>
-          <div id="month-container"></div>
-          <div id="day-container"></div>
+          <div class="revenue-filter-bar-top">
+            <div id="year-container"></div>
+            <div id="month-container"></div>
+            <div id="day-container"></div>
           </div>
           <div class="submit-button-revenue-container">
-            <button type="submit" class="btn btn-secondary">Filter</button>
+            <button type="submit" id="rev-filter-button" class="btn btn-secondary">Filter</button>
           </div>
         </form>`;
   renderToDOM('#rev-filter-bar', formContainer);
 
   const yearSelect = `
         <div><label for="year">Year</label></div>
-        <input type="number" id="year" min="1900" max="2100" name="year" required/>
+        <input type="number" id="year" min="1900" max="2100" name="year" placeholder="year" required/>
         `;
   renderToDOM('#year-container', yearSelect);
 

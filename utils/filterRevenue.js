@@ -1,4 +1,5 @@
 import { getClosedOrders } from '../api/orderData';
+import revenuePage from '../pages/revenuePage';
 
 const filterRevenue = () => {
   const yearInput = document.getElementById('year').value;
@@ -9,20 +10,20 @@ const filterRevenue = () => {
       const filteredArray = closedOrderArray.filter(
         (order) => order.time_submitted.slice(0, 4) === yearInput
       );
-      console.log(filteredArray);
+      revenuePage(filteredArray);
     } if (monthInput && !dayInput) {
       const filteredArray = closedOrderArray.filter(
         (order) => order.time_submitted.slice(5, 7) === monthInput
         && order.time_submitted.slice(0, 4) === yearInput
       );
-      console.log(filteredArray);
+      revenuePage(filteredArray);
     } if (monthInput && dayInput) {
       const filteredArray = closedOrderArray.filter(
         (order) => order.time_submitted.slice(5, 7) === monthInput
         && order.time_submitted.slice(0, 4) === yearInput
         && order.time_submitted.slice(8, 10) === dayInput
       );
-      console.log(filteredArray);
+      revenuePage(filteredArray);
     }
   });
 };

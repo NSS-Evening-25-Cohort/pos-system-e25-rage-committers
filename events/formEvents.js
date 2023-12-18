@@ -8,6 +8,7 @@ import {
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
 import { updateItem, createNewItem } from '../api/itemData';
+import filterRevenue from '../utils/filterRevenue';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -74,6 +75,10 @@ const formEvents = () => {
       updateItem(payload)
         .then(orderDetails(orderFirebaseKey));
     }
+  });
+  document.getElementById('view').addEventListener('submit', (e) => {
+    e.preventDefault();
+    filterRevenue();
   });
 };
 export default formEvents;
