@@ -1,69 +1,45 @@
 import renderToDOM from '../../utils/renderToDom';
 
 const revenueFilterBar = () => {
-  const domString = `
-  <form id="revenue-filter-bar-form" class="revenue-filter-bar-style">
-      <div id="month-container"></div>
-      </div>
-      <div class="submit-button-revenue-container">
-        <button type="submit" class="btn btn-secondary">Filter</button>
-      </div>
-    </form>`;
-  renderToDOM('#revenue-filter-bar', domString);
+  const formContainer = `
+       <form id="revenue-filter-bar-form" class="revenue-filter-bar-style">
+          <div id="year-container"></div>
+          <div id="month-container"></div>
+          <div id="day-container"></div>
+          </div>
+          <div class="submit-button-revenue-container">
+            <button type="submit" class="btn btn-secondary">Filter</button>
+          </div>
+        </form>`;
+  renderToDOM('#rev-filter-bar', formContainer);
 
-//   const domStringMonth = `
-//   <div><label for="months">Month</label></div>
-//   <select id="month" name="month" ${document.getElementById('day').value ? '' : '/required'}>
-//     <option value="noValue">month</option>
-//     <option value="1">Jan</option>
-//     <option value="2">Feb</option>
-//     <option value="3">March</option>
-//     <option value="4">April</option>
-//     <option value="5">May</option>
-//     <option value="6">June</option>
-//     <option value="7">July</option>
-//     <option value="8">August</option>
-//     <option value="9">September</option>
-//     <option value="10">October</option>
-//     <option value="11">November</option>
-//     <option value="12">December</option>
-//   </select>
-//  `;
-//   renderToDOM('#month-container', domStringMonth);
-};
-
-export default revenueFilterBar;
-
-/* <div><label for="months">Month</label></div>
-<select id="month" name="month" ${document.getElementById('day').value === 'noValue' ? '/required' : ''}>
-  <option value="noValue">month</option>
-  <option value="1">Jan</option>
-  <option value="2">Feb</option>
-  <option value="3">March</option>
-  <option value="4">April</option>
-  <option value="5">May</option>
-  <option value="6">June</option>
-  <option value="7">July</option>
-  <option value="8">August</option>
-  <option value="9">September</option>
-  <option value="10">October</option>
-  <option value="11">November</option>
-  <option value="12">December</option>
-</select>
-</div> */
-/* <select id="month" name="month" ${document.getElementById('day').value === 'noValue' ? '/required' : ''}> */
-
-/* <div class="submit-button-revenue-container">
-<button type="submit" class="btn btn-secondary">Filter</button>
-</div> */
-
-/* <div id="year-container">
+  const yearSelect = `
         <div><label for="year">Year</label></div>
         <input type="number" id="year" min="1900" max="2100" name="year" required/>
-</div> */
+        `;
+  renderToDOM('#year-container', yearSelect);
 
-/* <div id="day-container">
-<div><label for="day">Day</label></div>
+  const monthSelect = `
+    <div><label for="months">Month</label></div>
+     <select id="month" name="" /required'}>
+      <option value="">month</option>
+      <option value="1">Jan</option>
+      <option value="2">Feb</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+      <option value="5">May</option>
+      <option value="6">June</option>
+      <option value="7">July</option>
+      <option value="8">August</option>
+      <option value="9">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+     </select>`;
+  renderToDOM('#month-container', monthSelect);
+
+  const daySelect = `
+  <div><label for="day">Day</label></div>
   <select id="day" name="day">
     <option value="">day</option>
     <option value="1">1</option>
@@ -97,5 +73,9 @@ export default revenueFilterBar;
     <option value="29">29</option>
     <option value="30">30</option>
     <option value="31">31</option>
-  </select>
-</div> */
+  </select>`;
+
+  renderToDOM('#day-container', daySelect);
+};
+
+export default revenueFilterBar;

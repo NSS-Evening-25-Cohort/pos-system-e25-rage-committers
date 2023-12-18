@@ -1,12 +1,14 @@
 import { getClosedOrders } from '../api/orderData';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
+import revenueFilterBar from '../components/forms/revenueFilterBar';
 
 const revenuePage = () => {
   clearDom();
   const domString = `
   <div id="revenue-page">
     <div id="rev-header">REVENUE</div>
+    <div id="rev-filter-bar">hey</div>
     <div id="total-revenue"></div>
     <div id="line-chart"></div>
     <div id="total-tips"></div>
@@ -23,6 +25,7 @@ const revenuePage = () => {
   </div>
   `;
   renderToDOM('#view', domString);
+  revenueFilterBar();
 
   // CALCULATE TOTAL REVENUE
   getClosedOrders().then((closedOrderArray) => {

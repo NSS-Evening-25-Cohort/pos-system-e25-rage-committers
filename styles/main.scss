@@ -137,6 +137,26 @@ width: 30%;
   margin: 4%
 }
 
+//REVENUE FILTER BAR
+#revenue-filter-bar-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+}
+
+#year{
+  height: 25px;
+}
+
+#month{
+  height: 25px;
+}
+
+#day{
+  height: 25px;
+}
+
 //RENDER ORDER ITEMS
 #item-container{
   display: flex;
