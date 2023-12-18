@@ -4,7 +4,7 @@ import showOrders from '../pages/viewOrdersPage';
 import { getSingleOrder, deleteOrder } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
-import mergeOrdersCustomersArray from '../api/mergeData';
+import { mergeOrdersCustomersArray } from '../api/mergeData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {

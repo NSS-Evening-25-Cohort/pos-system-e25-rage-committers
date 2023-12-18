@@ -25,7 +25,7 @@ const mergeOrdersCustomersArray = () => new Promise((resolve, reject) => {
 const getOrderDetails = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(firebaseKey).then((ordersObject) => {
     getSingleItem(ordersObject.customer_id)
-      .then((ordersObject) => resolve({ ...ordersObject, itemObject }));
+      .then((itemObject) => resolve({ ...ordersObject, itemObject }));
   }).catch(reject);
 });
 

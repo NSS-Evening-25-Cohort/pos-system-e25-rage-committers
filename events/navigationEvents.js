@@ -2,7 +2,7 @@ import { signOut } from '../utils/auth';
 import takeMeHome from '../pages/homePage';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import showOrders from '../pages/viewOrdersPage';
-import mergeOrdersCustomersArray from '../api/mergeData';
+import { mergeOrdersCustomersArray } from '../api/mergeData';
 
 // navigation events
 const navigationEvents = () => {
