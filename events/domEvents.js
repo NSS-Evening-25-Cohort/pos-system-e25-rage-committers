@@ -5,6 +5,7 @@ import { getSingleOrder, deleteOrder, getClosedOrders } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
 import mergeOrdersCustomersArray from '../api/mergeData';
+import { getSingleCustomer } from '../api/customerData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -41,9 +42,13 @@ const domEvents = () => {
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey)
-        .then((orderObj) => {
-          createEditOrderPage(orderObj);
+      // eslint-disable-next-line no-console
+      console.log(firebaseKey);
+      getSingleCustomer(firebaseKey)
+        .then((customerObj) => {
+          // eslint-disable-next-line no-console
+          console.log('customer Object', customerObj);
+          createEditOrderPage(customerObj);
         });
     }
 
