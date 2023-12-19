@@ -1,7 +1,7 @@
 import revenuePage from '../pages/revenuePage';
 import createEditItemForm from '../components/forms/createEditItemForm';
 import showOrders from '../pages/viewOrdersPage';
-import { getSingleOrder, deleteOrder, getClosedOrders } from '../api/orderData';
+import { getSingleOrder, getClosedOrders } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
 import { getSingleCustomer } from '../api/customerData';
@@ -54,11 +54,9 @@ const domEvents = () => {
     }
 
     if (e.target.id.includes('delete-order')) {
-      console.log('delete-order');
       const [, orderFirebaseKey, customerFirebaseKey] = e.target.id.split('--');
       deleteOrderItemRelationship(orderFirebaseKey, customerFirebaseKey).then(() => {
-        mergeOrdersCustomersArray()
-          .then(showOrders);
+        mergeOrdersCustomersArray().then(showOrders);
       });
     }
     if (e.target.id.includes('details-order')) {

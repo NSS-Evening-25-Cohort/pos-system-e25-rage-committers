@@ -42,13 +42,12 @@ const getItemDetails = (firebaseKey) => new Promise((resolve, reject) => {
 
 const deleteOrderItemRelationship = (orderFirebaseKey, customerFirebaseKey) => new Promise((resolve, reject) => {
   getOrderItems(orderFirebaseKey).then((ItemsArray) => {
-    console.log(ItemsArray);
     const deleteItemPromises = ItemsArray.map((item) => deleteSingleItem(item.firebaseKey));
     Promise.all(deleteItemPromises).then(() => {
       deleteSingleCustomer(customerFirebaseKey).then(() => {
-        deleteOrder(orderFirebaseKey);
+        deleteOrder(orderFirebaseKey).then(resolve);
       });
-    }).then(resolve);
+    });
   }).catch(reject);
 });
 
