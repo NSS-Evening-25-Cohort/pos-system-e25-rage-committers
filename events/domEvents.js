@@ -43,16 +43,12 @@ const domEvents = () => {
     if (e.target.id.includes('edit-order')) {
       const [, orderFirebaseKey, customerFirebaseKey] = e.target.id.split('--');
       // eslint-disable-next-line no-console
-      console.log('firebaseKey', orderFirebaseKey, customerFirebaseKey);
       getSingleCustomer(customerFirebaseKey)
         .then((customerObj) => {
           getSingleOrder(orderFirebaseKey)
             .then((orderObj) => {
               createEditOrderPage(customerObj, orderObj);
             });
-          // eslint-disable-next-line no-console
-          console.warn('customerObj', customerObj);
-          createEditOrderPage(customerObj);
         });
     }
 

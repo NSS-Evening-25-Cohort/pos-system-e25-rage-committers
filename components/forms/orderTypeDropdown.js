@@ -1,12 +1,9 @@
 import renderToDOM from '../../utils/renderToDom';
 
 const orderTypeDropdown = (order) => {
-  if (!order) {
-    throw new Error('No order provided');
-  }
   const domString = `
     <label for="create-order-form-dropdown"  class="create-order-form-label">Select an Order Type</label>
-    <select class="form-control" id="order-type">
+    <select class="form-control" id="order-type" value="">
       <option value="">Select an Order</option>
       <option value="call_in">Call-In</option>
       <option value="walk_in">Walk-in</option>
