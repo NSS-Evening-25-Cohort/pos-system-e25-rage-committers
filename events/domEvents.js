@@ -5,6 +5,7 @@ import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
 import { mergeOrdersCustomersArray } from '../api/mergeData';
 import { getSingleCustomer } from '../api/customerData';
+import revenuePage from '../pages/revenuePage';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
