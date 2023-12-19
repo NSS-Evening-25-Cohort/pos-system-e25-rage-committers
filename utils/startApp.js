@@ -15,7 +15,6 @@ const startApp = (user) => {
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   takeMeHome(); // LOAD THE HOME SCREEN
   navigationEvents(); // ADD THE EVENT LISTENERS TO THE NAVBAR
-  closeOrderPage('-NlztieK2zQpmDIMNd4f');
 };
 
 export default startApp;

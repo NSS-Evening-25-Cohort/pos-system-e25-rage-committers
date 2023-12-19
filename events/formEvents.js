@@ -8,7 +8,6 @@ import showOrders from '../pages/viewOrdersPage';
 import { closeOrder } from '../utils/closeOrder';
 import { updateItem, createNewItem } from '../api/itemData';
 import filterRevenue from '../utils/filterRevenue';
-import showOrders from '../pages/viewOrdersPage';
 import { mergeOrdersCustomersArray } from '../api/mergeData';
 
 const formEvents = () => {
@@ -130,4 +129,5 @@ const formEvents = () => {
     filterRevenue();
   });
 };
+
 export default formEvents;
