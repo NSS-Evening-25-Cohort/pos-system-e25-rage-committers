@@ -30,10 +30,8 @@ const getSingleCustomer = (firebaseKey) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // eslint-disable-next-line no-console
-      console.warn(data);
       if (data) {
-        resolve(data); // Resolve with the full data object
+        resolve(data);
       } else {
         resolve({});
       }

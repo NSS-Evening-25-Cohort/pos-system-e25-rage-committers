@@ -1,7 +1,4 @@
-import {
-  createNewCustomer,
-  updateCustomer,
-} from '../api/customerData';
+import { createNewCustomer, updateCustomer } from '../api/customerData';
 import {
   createNewOrder, updateOrder, getOrders,
 } from '../api/orderData';
@@ -11,6 +8,8 @@ import showOrders from '../pages/viewOrdersPage';
 import { closeOrder } from '../utils/closeOrder';
 import { updateItem, createNewItem } from '../api/itemData';
 import filterRevenue from '../utils/filterRevenue';
+import showOrders from '../pages/viewOrdersPage';
+import { mergeOrdersCustomersArray } from '../api/mergeData';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -92,6 +91,26 @@ const formEvents = () => {
               orderDetails(firebaseKey);
             });
         });
+    }
+    // UPDATE -- CREATE/EDIT ORDER FORM
+    if (e.target.id.includes('update-order')) {
+      e.preventDefault();
+      const [, customerfirebaseKey, orderFirebaseKey] = e.target.id.split('--');
+      const customerPayload = {
+        customer_name: document.querySelector('#customer-name').value,
+        customer_phone_no: document.getElementById('customer-phone').value,
+        customer_email: document.getElementById('customer-email').value,
+        firebaseKey: customerfirebaseKey
+      };
+      updateCustomer(customerPayload).then(() => {
+        updateOrder({
+          order_type: document.getElementById('order-type').value,
+          firebaseKey: orderFirebaseKey
+        }).then(() => {
+          mergeOrdersCustomersArray()
+            .then(showOrders);
+        });
+      });
     }
     // UPDATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('update-item')) {
