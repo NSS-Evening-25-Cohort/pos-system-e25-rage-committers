@@ -1,10 +1,11 @@
 import revenuePage from '../pages/revenuePage';
 import createEditItemForm from '../components/forms/createEditItemForm';
 import showOrders from '../pages/viewOrdersPage';
-import { getSingleOrder, deleteOrder } from '../api/orderData';
+import { getSingleOrder, deleteOrder, getClosedOrders } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
 import { mergeOrdersCustomersArray } from '../api/mergeData';
+
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -17,7 +18,7 @@ const domEvents = () => {
       createEditOrderPage({});
     }
     if (e.target.id === 'view-revenue-button') {
-      revenuePage();
+      getClosedOrders().then(revenuePage);
     }
 
     // ORDER DETAILS PAGE
@@ -41,9 +42,13 @@ const domEvents = () => {
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey)
-        .then((orderObj) => {
-          createEditOrderPage(orderObj);
+      // eslint-disable-next-line no-console
+      console.log(firebaseKey);
+      getSingleCustomer(firebaseKey)
+        .then((customerObj) => {
+          // eslint-disable-next-line no-console
+          console.log('customer Object', customerObj);
+          createEditOrderPage(customerObj);
         });
     }
 

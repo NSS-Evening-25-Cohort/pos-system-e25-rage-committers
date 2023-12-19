@@ -49,12 +49,12 @@ width: 30%;
 }
 
 .btn-success{
-  margin: 25px;
+  margin: 30px;
   width: 30%;
 }
 
 .form-control{
-  margin-bottom: 8%;
+  margin-bottom: 6%;
 }
 
 #form-container{
@@ -68,9 +68,15 @@ width: 30%;
 }
 
 //VIEW ORDERS PAGE
+.card-title{
+  font-size: large;
+  height: 30px;
+}
+
 .card-text{
   text-align: left;
   height: 30px;
+  font-size: 14px;
 }
 
 .card{
@@ -135,6 +141,38 @@ width: 30%;
 
 #total-tips{
   margin: 4%
+}
+
+//REVENUE FILTER BAR
+#revenue-filter-bar-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+margin-bottom: 2%;
+}
+
+.revenue-filter-bar-top{
+  display: flex;
+  flex-direction: row;
+}
+
+#rev-filter-button{
+  margin-top: 5%;
+  width: 230px
+}
+
+#year{
+  height: 25px;
+}
+
+#month{
+  height: 25px;
+}
+
+#day{
+  height: 25px;
 }
 
 //RENDER ORDER ITEMS
