@@ -21,8 +21,8 @@ const showOrders = (array) => {
                 <p class="card-text"><b>Order Type:</b>  ${orderTypeFormatted}</p>
                 <div class="view-order-action-row">
                   <div class="details-edit">
-                    <a id="edit-order--${order.firebaseKey}--${order.customer_id}" class="card-link-details">Edit</a>
-                    <a id="details-order--${order.firebaseKey}" class="card-link-edit">Details</a>
+                    <a id="edit-order--${order.firebaseKey}--${order.customer_id}" class="card-link-details" style="cursor: pointer;">Edit</a>
+                    <a id="details-order--${order.firebaseKey}" class="card-link-edit" style="cursor: pointer;">Details</a>
                     </div>
                   <div class="details-delete">
                   <a id="delete-order--${order.firebaseKey}" class="card-link-delete">Delete</a>

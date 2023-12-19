@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import renderToDOM from './renderToDom';
 
 const lineChartYears = (array) => {
+  // console.warn(array);
   const domString = '<canvas id="myChart" style="width:100%;max-width:600px">hi</canvas>';
   renderToDOM('#line-chart', domString);
 
