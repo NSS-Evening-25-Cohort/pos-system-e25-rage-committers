@@ -73,6 +73,9 @@ Screenshots of your project
   - [View All Orders Screen](assets/readMeSS/view-order-page.png)
   - [Edit Order Screen](assets/readMeSS/edit-order-screen.png)
   - [Order Info Screen](assets/readMeSS/order-info.png)
+
+<br/>
+
 List of contributors and links to their GH profiles
   - [Max Rubel](https://github.com/MaxRubel)
   - [Abigail DePriest](https://github.com/Abigail-DePriest)
