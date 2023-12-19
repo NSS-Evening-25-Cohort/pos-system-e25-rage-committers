@@ -83,6 +83,6 @@ List of contributors and links to their GH profiles
   - [Jesse Ramirez](https://github.com/jgramirez0210)
 
   <br/>
-  
+
 Link to Loom video walkthrough of your app (no more than 1 minute long! Make it great)
-  -
+  - [link to video walkthrough]()
