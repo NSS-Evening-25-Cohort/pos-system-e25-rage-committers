@@ -9,6 +9,12 @@ body {
   margin-top: 100px;
 }
 
+#order-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar {
   position: fixed;
   top: 0;
