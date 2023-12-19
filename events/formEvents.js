@@ -129,4 +129,5 @@ const formEvents = () => {
     filterRevenue();
   });
 };
+
 export default formEvents;
