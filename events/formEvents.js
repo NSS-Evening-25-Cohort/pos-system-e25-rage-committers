@@ -6,7 +6,7 @@ import { createNewOrder, updateOrder, getOrders } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
 import showOrders from '../pages/viewOrdersPage';
-import closeOrder from '../utils/closeOrder';
+import { closeOrder } from '../utils/closeOrder';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
