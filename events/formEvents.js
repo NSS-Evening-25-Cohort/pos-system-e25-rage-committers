@@ -2,11 +2,15 @@ import {
   createNewCustomer,
   updateCustomer,
 } from '../api/customerData';
-import { createNewOrder, updateOrder, getOrders } from '../api/orderData';
+import {
+  createNewOrder, updateOrder, getOrders,
+} from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
 import showOrders from '../pages/viewOrdersPage';
 import { closeOrder } from '../utils/closeOrder';
+import { updateItem, createNewItem } from '../api/itemData';
+import filterRevenue from '../utils/filterRevenue';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -14,7 +18,7 @@ const formEvents = () => {
     if (e.target.id === 'create-order-form') {
       e.preventDefault();
       const customerPayload = {
-        customer_name: document.getElementById('order-name').value,
+        customer_name: document.getElementById('customer-name').value,
         customer_phone_no: document.getElementById('customer-phone').value,
         customer_email: document.getElementById('customer-email').value,
       };
@@ -31,7 +35,7 @@ const formEvents = () => {
                 tip_amount: '',
                 total_amount: '',
                 order_status: 'open',
-                time_submitted: getTheTime()
+                time_submitted: getTheTime(),
               };
               createNewOrder(orderPayload)
                 .then((orderData) => {
@@ -56,7 +60,55 @@ const formEvents = () => {
         getOrders().then(showOrders);
       });
     }
+    if (e.target.id.includes('submit-close')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        orer_status: 'closed',
+        tip_amount: document.querySelector('#tip-amount').value,
+        total_amount: '',
+        payment_type: document.querySelector('#drop-down').value,
+        firebaseKey,
+      };
+
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+
+    // CREATE -- CREATE/EDIT ITEM FORM
+    if (e.target.id.includes('create-item')) {
+      e.preventDefault();
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        item_name: document.getElementById('item-name').value,
+        item_price: document.getElementById('item-price').value,
+        order_id: firebaseKey
+      };
+      createNewItem(payload)
+        .then((data) => {
+          const patchPayload = { firebaseKey: data.name };
+          updateItem(patchPayload)
+            .then(() => {
+              orderDetails(firebaseKey);
+            });
+        });
+    }
+    // UPDATE -- CREATE/EDIT ITEM FORM
+    if (e.target.id.includes('update-item')) {
+      e.preventDefault();
+      const [, itemFirebaseKey, orderFirebaseKey] = e.target.id.split('--');
+      const payload = {
+        item_name: document.getElementById('item-name').value,
+        item_price: document.getElementById('item-price').value,
+        firebaseKey: itemFirebaseKey
+      };
+      updateItem(payload)
+        .then(orderDetails(orderFirebaseKey));
+    }
+  });
+  document.getElementById('view').addEventListener('submit', (e) => {
+    e.preventDefault();
+    filterRevenue();
   });
 };
-
 export default formEvents;

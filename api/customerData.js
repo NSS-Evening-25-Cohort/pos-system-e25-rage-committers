@@ -1,9 +1,28 @@
 import client from '../utils/client';
 
 const endpoint = client.databaseURL;
+// GET CUSTOMERS
+const getCustomers = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/customers.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 // GET SINGLE CUSTOMER
 const getSingleCustomer = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/customers.json?orderBy="firebaseKey"&equalTo="${firebaseKey}"`, {
+  fetch(`${endpoint}/customers/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -11,10 +30,10 @@ const getSingleCustomer = (firebaseKey) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      // eslint-disable-next-line no-console
+      console.warn(data);
       if (data) {
-        const objectify = Object.values(data);
-        const customer = objectify[0];
-        resolve(customer);
+        resolve(data); // Resolve with the full data object
       } else {
         resolve({});
       }
@@ -50,4 +69,6 @@ const updateCustomer = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { createNewCustomer, updateCustomer, getSingleCustomer };
+export {
+  createNewCustomer, updateCustomer, getSingleCustomer, getCustomers
+};

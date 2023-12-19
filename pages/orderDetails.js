@@ -9,6 +9,12 @@ const orderDetails = (firebaseKey) => {
   `;
   renderToDOM('#view', orderTotal);
   renderOrderItems(firebaseKey);
+  const buttonRow = `
+  <div id="orderItem-button-row">
+</div>
+</div>
+  </div>`;
+  renderToDOM('#form-container', buttonRow);
 };
 
 export default orderDetails;

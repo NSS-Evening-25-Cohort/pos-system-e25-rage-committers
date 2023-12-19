@@ -67,6 +67,19 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// DELETE ORDER
+const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 // GET CLOSED ORDERS (FOR REVENUE)
 const getClosedOrders = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json?orderBy="order_status"&equalTo="closed"`, {
@@ -85,7 +98,6 @@ const getClosedOrders = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-
 export {
-  getClosedOrders, createNewOrder, updateOrder, getSingleOrder, getOrders
+  getClosedOrders, createNewOrder, updateOrder, getSingleOrder, getOrders, deleteOrder
 };

@@ -3,7 +3,7 @@
 
 
 body {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
   text-align: center;
   margin-top: 100px;
@@ -15,6 +15,10 @@ body {
   width: 100%;
   z-index: +1;
   opacity: 85%;
+}
+
+.create-order-form-label{
+  text-align: left;
 }
 
 //NAVBAR
@@ -45,12 +49,12 @@ width: 30%;
 }
 
 .btn-success{
-  margin: 25px;
+  margin: 30px;
   width: 30%;
 }
 
 .form-control{
-  margin-bottom: 8%;
+  margin-bottom: 6%;
 }
 
 #form-container{
@@ -64,9 +68,15 @@ width: 30%;
 }
 
 //VIEW ORDERS PAGE
+.card-title{
+  font-size: large;
+  height: 30px;
+}
+
 .card-text{
   text-align: left;
   height: 30px;
+  font-size: 14px;
 }
 
 .card{
@@ -76,9 +86,15 @@ width: 30%;
 
 #order-container{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18.1rem, 1fr));
   grid-row-gap: 1px;
   place-items: center;
+}
+
+.view-order-action-row{
+  display: flex;
+  justify-content: center;
+  gap: 10%;
 }
 
 .view-order-action-row{
@@ -109,15 +125,7 @@ width: 30%;
   text-decoration: none;
 }
 
-// display: grid;
-// grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
-// grid-auto-rows: auto;
-// grid-row-gap: 1px;
-// place-items: center;
-
 //ORDER ITEM PAGE
-
-
 //REVENUE PAGE
 #rev-header{
   margin-top: 20%;
@@ -133,4 +141,45 @@ width: 30%;
 
 #total-tips{
   margin: 4%
+}
+
+//REVENUE FILTER BAR
+#revenue-filter-bar-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+margin-bottom: 2%;
+}
+
+.revenue-filter-bar-top{
+  display: flex;
+  flex-direction: row;
+}
+
+#rev-filter-button{
+  margin-top: 5%;
+  width: 230px
+}
+
+#year{
+  height: 25px;
+}
+
+#month{
+  height: 25px;
+}
+
+#day{
+  height: 25px;
+}
+
+//RENDER ORDER ITEMS
+#item-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
 }

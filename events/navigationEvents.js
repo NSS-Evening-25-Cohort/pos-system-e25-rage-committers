@@ -2,7 +2,7 @@ import { signOut } from '../utils/auth';
 import takeMeHome from '../pages/homePage';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import showOrders from '../pages/viewOrdersPage';
-import { getOrders } from '../api/orderData';
+import { mergeOrdersCustomersArray } from '../api/mergeData';
 
 // navigation events
 const navigationEvents = () => {
@@ -17,12 +17,13 @@ const navigationEvents = () => {
   // CREATE AN ORDER
   document.querySelector('#create-order')
     .addEventListener('click', () => {
-      createEditOrderPage();
+      createEditOrderPage({});
     });
   // VIEW ORDERS
   document.querySelector('#view-orders')
     .addEventListener('click', () => {
-      getOrders().then(showOrders);
+      mergeOrdersCustomersArray()
+        .then(showOrders);
     });
 };
 
