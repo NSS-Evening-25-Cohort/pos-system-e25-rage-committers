@@ -25,7 +25,7 @@ const showOrders = (array) => {
                     <a id="details-order--${order.firebaseKey}" class="card-link-edit" style="cursor: pointer;">Details</a>
                     </div>
                   <div class="details-delete">
-                  <a id="delete-order--${order.firebaseKey}" class="card-link-delete">Delete</a>
+                  <a id="delete-order--${order.firebaseKey}--${order.customer_id}" class="card-link-delete" style="cursor: pointer;">Delete</a>
                 </div>
               </div>
             </div>

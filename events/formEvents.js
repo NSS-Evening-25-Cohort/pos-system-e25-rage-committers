@@ -72,7 +72,34 @@ const formEvents = () => {
         getOrders().then(showOrders);
       });
     }
+    if (e.target.id.includes('submit-close')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        order_status: 'closed',
+        tip_amount: document.querySelector('#tip-amount').value,
+        total_amount: '',
+        payment_type: document.querySelector('#drop-down').value,
+        firebaseKey,
+      };
 
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+    if (e.target.id.includes('submit-close')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        orer_status: 'closed',
+        tip_amount: document.querySelector('#tip-amount').value,
+        total_amount: '',
+        payment_type: document.querySelector('#drop-down').value,
+        firebaseKey,
+      };
+
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
     // CREATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('create-item')) {
       e.preventDefault();

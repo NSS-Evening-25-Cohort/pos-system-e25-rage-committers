@@ -1,11 +1,12 @@
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 import renderOrderItems from '../utils/renderOrderItems';
+import getOrderTotal from '../utils/getOrderTotal';
 
 const orderDetails = (firebaseKey) => {
   clearDom();
   const orderTotal = `
-  <div id="order-total-display">Total: <div id="revenue"></div></div>
+  <div id="order-total-display"><div id="revenue"></div></div>
   `;
   renderToDOM('#view', orderTotal);
   renderOrderItems(firebaseKey);
@@ -16,6 +17,7 @@ const orderDetails = (firebaseKey) => {
 </div>
   </div>`;
   renderToDOM('#form-container', buttonRow);
+  getOrderTotal(firebaseKey);
 };
 
 export default orderDetails;
