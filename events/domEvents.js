@@ -1,10 +1,10 @@
-import revenuePage from '../pages/revenuePage';
 import createEditItemForm from '../components/forms/createEditItemForm';
 import showOrders from '../pages/viewOrdersPage';
 import { getSingleOrder, deleteOrder, getClosedOrders } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem, deleteSingleItem, getOrderItems } from '../api/itemData';
 import { getSingleCustomer } from '../api/customerData';
+import revenuePage from '../pages/revenuePage';
 import { mergeOrdersCustomersArray } from '../api/mergeData';
 import orderDetails from '../pages/orderDetails';
 
