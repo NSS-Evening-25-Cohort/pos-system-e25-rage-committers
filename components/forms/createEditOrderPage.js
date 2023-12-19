@@ -2,7 +2,7 @@ import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 import orderTypeDropdown from './orderTypeDropdown';
 
-const createEditOrderPage = (customers) => {
+const createEditOrderPage = (customers, orders) => {
   clearDom();
   const domString = `
   <form id="${customers.firebaseKey ? `update-order-form--${customers.firebaseKey}` : 'create-order-form'}" class="mb-4">
@@ -20,9 +20,9 @@ const createEditOrderPage = (customers) => {
   </div>
   <div id="order-type-dropdown" class="form-group">
   </div>
-  <button type="submit" id="${customers.firebaseKey ? `update-order--${customers.firebaseKey}` : 'create-order'}" class="btn btn-primary">Submit Order</button>
+  <button type="submit" id="${customers.firebaseKey ? `update-order--${customers.firebaseKey}` : 'create-order'}" class="btn btn-primary">${customers.firebaseKey ? 'Edit Order' : 'Submit Order'}</button>
   </form>`;
   renderToDOM('#form-container', domString);
-  orderTypeDropdown();
+  orderTypeDropdown(orders);
 };
 export default createEditOrderPage;
