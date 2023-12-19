@@ -41,13 +41,17 @@ const domEvents = () => {
       // closeOrderPage(firebaseKey);
     }
     if (e.target.id.includes('edit-order')) {
-      const [, firebaseKey] = e.target.id.split('--');
+      const [, orderFirebaseKey, customerFirebaseKey] = e.target.id.split('--');
       // eslint-disable-next-line no-console
-      console.log(firebaseKey);
-      getSingleCustomer(firebaseKey)
+      console.log('firebaseKey', orderFirebaseKey, customerFirebaseKey);
+      getSingleCustomer(customerFirebaseKey)
         .then((customerObj) => {
+          getSingleOrder(orderFirebaseKey)
+            .then((orderObj) => {
+              createEditOrderPage(customerObj, orderObj);
+            });
           // eslint-disable-next-line no-console
-          console.log('customer Object', customerObj);
+          console.warn('customerObj', customerObj);
           createEditOrderPage(customerObj);
         });
     }

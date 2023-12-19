@@ -1,5 +1,6 @@
 import {
   createNewCustomer,
+  getCustomers,
   updateCustomer,
 } from '../api/customerData';
 import {
@@ -9,6 +10,7 @@ import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
 import { updateItem, createNewItem } from '../api/itemData';
 import filterRevenue from '../utils/filterRevenue';
+import showOrders from '../pages/viewOrdersPage';
 
 const formEvents = () => {
   document.getElementById('form-container').addEventListener('submit', (e) => {
@@ -62,6 +64,20 @@ const formEvents = () => {
               orderDetails(firebaseKey);
             });
         });
+    }
+    // UPDATE -- CREATE/EDIT ORDER FORM
+    if (e.target.id.includes('update-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        customer_name: document.querySelector('#customer-name').value,
+        customer_phone_no: document.querySelector('#customer-phone').value,
+        customer_email: document.querySelector('#customer-email').value,
+        firebaseKey,
+      };
+
+      updateCustomer(payload).then(() => {
+        getCustomers().then(showOrders);
+      });
     }
     // UPDATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('update-item')) {
