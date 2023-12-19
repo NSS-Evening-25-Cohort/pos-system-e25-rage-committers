@@ -8,7 +8,6 @@ import showOrders from '../pages/viewOrdersPage';
 import { closeOrder } from '../utils/closeOrder';
 import { updateItem, createNewItem } from '../api/itemData';
 import filterRevenue from '../utils/filterRevenue';
-import showOrders from '../pages/viewOrdersPage';
 import { mergeOrdersCustomersArray } from '../api/mergeData';
 
 const formEvents = () => {
@@ -48,7 +47,7 @@ const formEvents = () => {
     if (e.target.id.includes('submit-close')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
-        orer_status: 'closed',
+        order_status: 'closed',
         tip_amount: document.querySelector('#tip-amount').value,
         total_amount: '',
         payment_type: document.querySelector('#drop-down').value,
