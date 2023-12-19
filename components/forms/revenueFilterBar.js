@@ -78,9 +78,11 @@ const revenueFilterBar = () => {
 
   renderToDOM('#day-container', daySelect);
 
-  document.getElementById('view').addEventListener('click', () => {
-    if (document.getElementById('day').value) {
-      document.getElementById('month').setAttribute('required', true);
+  document.getElementById('view').addEventListener('click', (e) => {
+    if (e.target.id === 'revenue-filter-bar-form') {
+      if (document.getElementById('day').value) {
+        document.getElementById('month').setAttribute('required', true);
+      }
     }
   });
 };

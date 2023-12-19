@@ -6,8 +6,8 @@ const revenuePage = (array) => {
   clearDom();
   const domString = `
   <div id="revenue-page">
-    <div id="rev-header">REVENUE</div>
-    <div id="rev-filter-bar">hey</div>
+    <div id="rev-header"></div>
+    <div id="rev-filter-bar"></div>
     <div id="total-revenue"></div>
     <div id="line-chart"></div>
     <div id="total-tips"></div>

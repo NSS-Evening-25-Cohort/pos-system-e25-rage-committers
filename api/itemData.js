@@ -17,6 +17,7 @@ const createNewItem = (newOrderPayload) => new Promise((resolve, reject) => {
 });
 
 const getOrderItems = (orderId) => new Promise((resolve, reject) => {
+  // eslint-disable-next-line
   fetch(`${endpoint}/items.json?orderBy="order_id"&equalTo="${orderId}"`, {
     method: 'GET',
     headers: {

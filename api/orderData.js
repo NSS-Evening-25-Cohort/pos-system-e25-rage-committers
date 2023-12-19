@@ -98,17 +98,9 @@ const getClosedOrders = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-const getOrderStatus = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`https://your-database.firebaseio.com/orderStatus/${firebaseKey}.json`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve(data))
-    .catch(reject);
-});
+
 export {
-  getClosedOrders, createNewOrder, updateOrder, getSingleOrder, getOrders, deleteOrder, getOrderStatus
+  getClosedOrders, createNewOrder, updateOrder, getSingleOrder, getOrders, deleteOrder,
 };
+
+// getOrderStatus
