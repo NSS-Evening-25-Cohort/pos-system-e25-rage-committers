@@ -7,6 +7,7 @@ import { getSingleCustomer } from '../api/customerData';
 import revenuePage from '../pages/revenuePage';
 import { mergeOrdersCustomersArray, deleteOrderItemRelationship } from '../api/mergeData';
 import orderDetails from '../pages/orderDetails';
+import closeOrderForm from '../components/forms/closeOrderForm';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -36,10 +37,8 @@ const domEvents = () => {
 
     // GO TO PAYMENT
     if (e.target.id.includes('close-order')) {
-      // const [, firebaseKey] = e.target.id.split('--');
-      // TATIANNA CALL THIS FUNCTION TO RENDER THE CLOSE ORDER PAGE
-      // THE FIREBASE KEY IS THE FIREBASE KEY OF THE ORDER YOU HAVE TO CLOSE OUT/UPDATE
-      // closeOrderPage(firebaseKey);
+      const [, firebaseKey] = e.target.id.split('--');
+      closeOrderForm(firebaseKey);
     }
     if (e.target.id.includes('edit-order')) {
       const [, orderFirebaseKey, customerFirebaseKey] = e.target.id.split('--');

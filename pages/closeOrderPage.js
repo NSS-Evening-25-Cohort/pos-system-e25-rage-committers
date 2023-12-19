@@ -10,13 +10,10 @@ const getOrderTotal = (firebaseKey) => {
   // renderToDOM('#view', orderTotal);
 
   getOrderItems(firebaseKey).then((data) => {
-    console.log(data);
     const itemPrices = [];
     data.forEach((item) => {
       itemPrices.push(Number(item.item_price));
     });
-    console.log(itemPrices);
-
     const initialValue = 0;
     const total = itemPrices.reduce((accumulator, currentValue) => accumulator + currentValue,
       initialValue);
