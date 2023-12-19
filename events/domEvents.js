@@ -5,7 +5,7 @@ import { getSingleOrder, deleteOrder, getClosedOrders } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
 import { getSingleCustomer } from '../api/customerData';
-import { mergeOrdersCustomersArray } from '../api/mergeData';
+import { mergeOrdersCustomersArray, deleteOrderItemRelationship } from '../api/mergeData';
 import orderDetails from '../pages/orderDetails';
 
 const domEvents = () => {
@@ -54,8 +54,9 @@ const domEvents = () => {
     }
 
     if (e.target.id.includes('delete-order')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      deleteOrder(firebaseKey).then(() => {
+      console.log('delete-order');
+      const [, orderFirebaseKey, customerFirebaseKey] = e.target.id.split('--');
+      deleteOrderItemRelationship(orderFirebaseKey, customerFirebaseKey).then(() => {
         mergeOrdersCustomersArray()
           .then(showOrders);
       });

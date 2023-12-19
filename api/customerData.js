@@ -67,6 +67,18 @@ const updateCustomer = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const deleteSingleCustomer = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/customers/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  createNewCustomer, updateCustomer, getSingleCustomer, getCustomers
+  createNewCustomer, updateCustomer, getSingleCustomer, getCustomers, deleteSingleCustomer
 };

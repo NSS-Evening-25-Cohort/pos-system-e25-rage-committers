@@ -43,7 +43,6 @@ const formEvents = () => {
             });
         });
     }
-
     // CREATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('create-item')) {
       e.preventDefault();
