@@ -11,6 +11,7 @@ const orderDetails = (firebaseKey) => {
   renderOrderItems(firebaseKey);
   const buttonRow = `
   <div id="orderItem-button-row">
+  <div id="delete-item">Delete Item</div>
 </div>
 </div>
   </div>`;

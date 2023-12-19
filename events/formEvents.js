@@ -1,12 +1,13 @@
 import { createNewCustomer, updateCustomer } from '../api/customerData';
 import {
-  createNewOrder, updateOrder,
+  createNewOrder, updateOrder, getOrders,
 } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
+import showOrders from '../pages/viewOrdersPage';
+import { closeOrder } from '../utils/closeOrder';
 import { updateItem, createNewItem } from '../api/itemData';
 import filterRevenue from '../utils/filterRevenue';
-import showOrders from '../pages/viewOrdersPage';
 import { mergeOrdersCustomersArray } from '../api/mergeData';
 
 const formEvents = () => {
@@ -42,6 +43,62 @@ const formEvents = () => {
                 });
             });
         });
+    }
+    if (e.target.id.includes('submit-close')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        order_status: 'closed',
+        tip_amount: document.querySelector('#tip-amount').value,
+        total_amount: '',
+        payment_type: document.querySelector('#drop-down').value,
+        firebaseKey,
+      };
+
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+    if (e.target.id.includes('submit-close')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        orer_status: 'closed',
+        tip_amount: document.querySelector('#tip-amount').value,
+        total_amount: '',
+        payment_type: document.querySelector('#drop-down').value,
+        firebaseKey,
+      };
+
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+    if (e.target.id.includes('submit-close')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        order_status: 'closed',
+        tip_amount: document.querySelector('#tip-amount').value,
+        total_amount: '',
+        payment_type: document.querySelector('#drop-down').value,
+        firebaseKey,
+      };
+
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+    if (e.target.id.includes('submit-close')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        orer_status: 'closed',
+        tip_amount: document.querySelector('#tip-amount').value,
+        total_amount: '',
+        payment_type: document.querySelector('#drop-down').value,
+        firebaseKey,
+      };
+
+      closeOrder(payload).then(() => {
+        getOrders().then(showOrders);
+      });
     }
     // CREATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('create-item')) {
@@ -99,4 +156,5 @@ const formEvents = () => {
     filterRevenue();
   });
 };
+
 export default formEvents;
