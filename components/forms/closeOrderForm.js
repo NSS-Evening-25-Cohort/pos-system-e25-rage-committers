@@ -22,7 +22,7 @@ const closeOrderForm = () => {
     <button type="submit" id="submit-close" class="btn btn-primary">Submit</button>
   </form>`;
 
-  renderToDOM('#view', domString);
+  renderToDOM('#order-container', domString);
 };
 
 export default closeOrderForm;
