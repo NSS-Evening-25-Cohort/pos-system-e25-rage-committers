@@ -5,7 +5,7 @@ import orderTypeDropdown from './orderTypeDropdown';
 const createEditOrderPage = (customers, orders) => {
   clearDom();
   const domString = `
-  <form id="${customers.firebaseKey ? `update-order-form--${customers.firebaseKey}` : 'create-order-form'}" class="mb-4">
+  <form id="${customers.firebaseKey ? `update-order-form--${customers.firebaseKey}--${orders.firebaseKey}` : 'create-order-form'}" class="mb-4">
   <div class="form-group">
       <label for="order-name" class="create-order-form-label">Customer Name</label>
       <input type="text" class="form-control" id="customer-name" placeholder="Customer Name" value="${customers.customer_name || ''}" required>

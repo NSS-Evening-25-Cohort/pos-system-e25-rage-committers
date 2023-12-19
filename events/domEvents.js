@@ -15,7 +15,7 @@ const domEvents = () => {
         .then(showOrders);
     }
     if (e.target.id === 'create-new-order-form') {
-      createEditOrderPage({});
+      createEditOrderPage({}, {});
     }
     if (e.target.id === 'view-revenue-button') {
       getClosedOrders().then(revenuePage);
@@ -52,13 +52,6 @@ const domEvents = () => {
         });
     }
 
-    if (e.target.id.includes('create-order')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey)
-        .then((orderObj) => {
-          createEditOrderPage(orderObj);
-        });
-    }
     if (e.target.id.includes('delete-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       deleteOrder(firebaseKey).then(() => {
