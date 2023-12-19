@@ -4,8 +4,9 @@ import showOrders from '../pages/viewOrdersPage';
 import { getSingleOrder, deleteOrder, getClosedOrders } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem } from '../api/itemData';
-import { mergeOrdersCustomersArray } from '../api/mergeData';
 import { getSingleCustomer } from '../api/customerData';
+import { mergeOrdersCustomersArray } from '../api/mergeData';
+import orderDetails from '../pages/orderDetails';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -65,6 +66,10 @@ const domEvents = () => {
         mergeOrdersCustomersArray()
           .then(showOrders);
       });
+    }
+    if (e.target.id.includes('details-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      orderDetails(firebaseKey);
     }
   });
 };
