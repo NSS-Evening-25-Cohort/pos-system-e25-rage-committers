@@ -1,0 +1,58 @@
+[
+{
+  "firebaseKey":"item1",
+  "order_id":"order1",
+  "item_name":"East Coast Feast Seafood Special", 
+  "item_quantity": 3, 
+  "item_price": 3.53
+},
+{
+  "firebaseKey":"item2",
+  "order_id":"order2",  
+  "item_name":"Sweet Melody Honey Garlic Wings",
+  "item_quantity": 2, 
+  "item_price": 6
+},
+{
+  "firebaseKey":"item3",
+  "order_id":"order3",
+  "item_name":"Sweet Melody Honey Garlic Wings",
+  "item_quantity": 2, 
+  "item_price": 6
+},
+{
+  "firebaseKey":"item4",
+  "order_id":"order3",
+  "item_name":"Hotline Blings", 
+  "item_quantity":3, 
+  "item_price": 23
+},
+{
+  "firebaseKey":"item5",
+  "order_id":"order4",
+  "item_name":"Straight Outta Buffalo Chicken Pizza", 
+  "item_quantity":6, 
+  "item_price": 31.50
+},
+{
+  "firebaseKey":"item6",
+  "order_id":"order5",
+  "item_name":"Straight Outta Buffalo Chicken Pizza", 
+  "item_quantity":2, 
+  "item_price": 3
+},
+{
+  "firebaseKey":"item7",
+  "order_id":"order6",
+  "item_name":"Sweet Melody Honey Garlic Wings",
+  "item_quantity": 3,
+  "item_price": 4
+},
+{
+  "firebaseKey":"item8",
+  "order_id":"order6",
+  "item_name":"East Coast Feast Seafood Special",
+  "item_quantity": 7,
+  "item_price": 4.50
+}
+]

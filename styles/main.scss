@@ -3,8 +3,183 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: rgb(0, 0, 0);
+  color: white;
   text-align: center;
   margin-top: 100px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: +1;
+  opacity: 85%;
+}
+
+.create-order-form-label{
+  text-align: left;
+}
+
+//NAVBAR
+#nav-logo{
+  width: 75px;
+}
+.nav-link-color {
+  color: white;
+}
+#navbar-logout-button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// HOME PAGE BUTTONS
+.homepage-button-container{
+  margin-top: 15%;
+}
+
+.btn-warning{
+  margin: 25px;
+width: 30%;
+}
+
+.btn-info{
+  margin: 25px;
+  width: 30%;
+}
+
+.btn-success{
+  margin: 30px;
+  width: 30%;
+}
+
+.form-control{
+  margin-bottom: 6%;
+}
+
+#form-container{
+
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.create-order-form-label{
+  float: left
+}
+
+//VIEW ORDERS PAGE
+.card-title{
+  font-size: large;
+  height: 30px;
+}
+
+.card-text{
+  text-align: left;
+  height: 30px;
+  font-size: 14px;
+}
+
+.card{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+#order-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18.1rem, 1fr));
+  grid-row-gap: 1px;
+  place-items: center;
+}
+
+.view-order-action-row{
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+.view-order-action-row{
+  display: flex;
+  justify-content: center;
+  gap: 38%;
+}
+
+.details-edit{
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 20%;
+}
+
+.card-link-details{
+  color: rgb(0, 164, 218);
+  text-decoration: none;
+}
+
+.card-link-edit{
+  color: rgb(222, 0, 222);
+  text-decoration: none;
+}
+
+.card-link-delete{
+  color: rgb(186, 2, 2);
+  text-decoration: none;
+}
+
+//ORDER ITEM PAGE
+//REVENUE PAGE
+#rev-header{
+  margin-top: 20%;
+  margin: 2%;
+  font-size:3rem;
+  font-weight: 500;
+}
+
+#total-revenue{
+  font-size:3rem;
+  font-weight: 500;
+}
+
+#total-tips{
+  margin: 4%
+}
+
+//REVENUE FILTER BAR
+#revenue-filter-bar-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+margin-bottom: 2%;
+}
+
+.revenue-filter-bar-top{
+  display: flex;
+  flex-direction: row;
+}
+
+#rev-filter-button{
+  margin-top: 5%;
+  width: 230px
+}
+
+#year{
+  height: 25px;
+}
+
+#month{
+  height: 25px;
+}
+
+#day{
+  height: 25px;
+}
+
+//RENDER ORDER ITEMS
+#item-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
 }

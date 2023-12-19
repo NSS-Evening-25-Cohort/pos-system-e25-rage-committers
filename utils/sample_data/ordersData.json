@@ -1,0 +1,68 @@
+[
+{
+  "firebaseKey":"order1",
+  "order_status":"closed",
+  "customer_id":"customer1",
+  "order_date":"7/13/2023",
+  "order_type":"digital",
+  "payment_type":"cash",
+  "tip_amount":0.10,
+  "total_amount":10.69,
+  "time_submitted":"2023-07-13T17:21:14:314"
+},
+{
+  "firebaseKey":"order2",
+  "order_status":"open",
+  "customer_id":"customer2",
+  "order_date":"9/2/2023",
+  "order_type":"digital",
+  "payment_type":"card",
+  "tip_amount":0.10,
+  "total_amount":12.10,
+  "time_submitted":"2023-09-02T17:11:14:200"
+},
+{
+  "firebaseKey":"order3",
+  "order_status":"open",
+  "customer_id":"customer3",
+  "order_date":"9/15/2023",
+  "order_type":"call_in",
+  "payment_type":"cash",
+  "tip_amount":0.15,
+  "total_amount":189.15,
+  "time_submitted":"2023-09-15T17:09:21:600"
+},
+{
+  "firebaseKey":"order4",
+  "order_status":"closed",
+  "customer_id":"customer4",
+  "order_date":"11/14/2023",
+  "order_type":"call_in",
+  "payment_type":"crypto",
+  "tip_amount":0.15,
+  "total_amount":189.15,
+  "time_submitted":"2023-11-14T12:05:21:600"
+},
+{
+  "firebaseKey":"order5",
+  "order_status":"open",
+  "customer_id":"customer5",
+  "order_date":"4/25/2023",
+  "order_type":"walk_in",
+  "payment_type":"card",
+  "tip_amount":0.15,
+  "total_amount":6.15,
+  "time_submitted":"2023-04-25T20:09:21:600"
+},
+{
+  "firebaseKey":"order6",
+  "order_status":"closed",
+  "customer_id":"customer6",
+  "order_date":"4/6/2023",
+  "order_type":"walk_in",
+  "payment_type":"card",
+  "tip_amount":0.10,
+  "total_amount":43.60,
+  "time_submitted":"2023-04-06T17:09:21:600"
+}
+]

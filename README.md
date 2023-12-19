@@ -44,3 +44,45 @@ Things to remember while coding out the project
 * [Stretch Goals 1 - Filtering the Data](./instructions/stretch-1.md)
 * [Stretch Goals 2 - Dealing with Change](./instructions/stretch-2.md)
 * [Stretch Goals 3 - Play that Funky Music](./instructions/stretch-3.md)
+
+Name of the Project
+  - Hip Hop Pizza & Wings
+Overview of the project
+  - A pos system for hip hop pizza and wings that alow the customer to track all open orders, edit customers, edit order items, and create new orders. 
+Link to your wireframes/prototype
+  - Link to the [Site Map](https://drive.google.com/file/d/10x3PbFrS-XpZ0psx5z-k3gLx2guhBxi7/view?usp=drive_link)
+Link to the deployed project
+
+Link to your project board (yes...even though it is a part of the repo)
+  - link to [Project Board](https://github.com/NSS-Evening-25-Cohort/pos-system-e25-rage-committers/issues)
+Description of the user
+
+List of features
+  - Alow the user to see all orders
+  - Alow the user to create a new order
+  - Alow the user to see a total revenue page (automatically gets calculated based on the each order total)
+  - Alow the user to edit an order 
+  - Alow to delete an order 
+  - Alow the user to click more details to see detailed info about the order
+  - Alow the user to add items to the details page
+  - Alow the user to check out with payment
+
+Screenshots of your project
+  - [Login Screen](assets/readMeSS/login-screen.png)
+  - [Home Screen](assets/readMeSS/home-screen.png)
+  - [View All Orders Screen](assets/readMeSS/view-order-page.png)
+  - [Edit Order Screen](assets/readMeSS/edit-order-screen.png)
+  - [Order Info Screen](assets/readMeSS/order-info.png)
+
+<br/>
+
+List of contributors and links to their GH profiles
+  - [Max Rubel](https://github.com/MaxRubel)
+  - [Abigail DePriest](https://github.com/Abigail-DePriest)
+  - [Tatiana Barga](https://github.com/tatianabarga)
+  - [Jesse Ramirez](https://github.com/jgramirez0210)
+
+  <br/>
+
+Link to Loom video walkthrough of your app (no more than 1 minute long! Make it great)
+  - [link to video walkthrough]()
