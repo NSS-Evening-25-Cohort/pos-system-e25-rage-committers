@@ -50,12 +50,11 @@ Name of the Project
 Overview of the project
   - A pos system for hip hop pizza and wings that alow the customer to track all open orders, edit customers, edit order items, and create new orders. 
 Link to your wireframes/prototype
-  - Link to the [Site Map](https://drive.google.com/file/d/10x3PbFrS-XpZ0psx5z-k3gLx2guhBxi7/view?usp=drive_link)
+  - [Link to the Site Map](https://drive.google.com/file/d/10x3PbFrS-XpZ0psx5z-k3gLx2guhBxi7/view?usp=drive_link)
 Link to the deployed project
 
-Link to your project board (yes...even though it is a part of the repo)
-  - link to [Project Board](https://github.com/NSS-Evening-25-Cohort/pos-system-e25-rage-committers/issues)
-Description of the user
+Link to your project board
+  - [Link to Project Board](https://github.com/NSS-Evening-25-Cohort/pos-system-e25-rage-committers/issues)
 
 List of features
   - Alow the user to see all orders
@@ -73,6 +72,7 @@ Screenshots of your project
   - [View All Orders Screen](assets/readMeSS/view-order-page.png)
   - [Edit Order Screen](assets/readMeSS/edit-order-screen.png)
   - [Order Info Screen](assets/readMeSS/order-info.png)
+  - [Edit Order Item](assets/readMeSS/edit-item.png)
 
 <br/>
 
