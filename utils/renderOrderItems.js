@@ -3,6 +3,7 @@ import { getOrderItems } from '../api/itemData';
 
 const renderOrderItems = (firebaseKey) => {
   getOrderItems(firebaseKey).then((data) => {
+    console.log(firebaseKey);
     if (data.length > 0) {
       let domString = '';
       data.forEach((item) => {
@@ -12,8 +13,8 @@ const renderOrderItems = (firebaseKey) => {
         <h5 class="card-title">${item.item_name}</h5>
         <h6 class="card-price mb-2 text-muted">PRICE: ${item.item_price}</h6>
         <div id="orderItem-button-row">
-          <a href="#" id=edit-item--${item.firebaseKey}--${firebaseKey} class="card-link">Edit Item</a>
-          <a href="#" id=delete-item--${item.firebaseKey} class="card-link">Delete Item</a>
+          <a href="#" id=edit-item--${item.firebaseKey}--${firebaseKey} class="card-link-edit-item">Edit Item</a>
+          <a href="#" id=delete-item--${item.firebaseKey}--${firebaseKey} class="card-link-delete-item">Delete Item</a>
         </div>
       </div>
   </div>

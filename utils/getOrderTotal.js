@@ -10,7 +10,7 @@ const getOrderTotal = (firebaseKey) => {
     const initialValue = 0;
     const total = itemPrices.reduce((accumulator, currentValue) => accumulator + currentValue,
       initialValue);
-    renderToDOM('#order-total-display', `Total: ${total}`);
+    renderToDOM('#order-total-display', `ORDER TOTAL: $ ${total}`);
   });
 };
 

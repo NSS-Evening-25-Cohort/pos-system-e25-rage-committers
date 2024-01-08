@@ -1,11 +1,10 @@
 import { createNewCustomer, updateCustomer } from '../api/customerData';
 import {
-  createNewOrder, updateOrder, getOrders,
+  createNewOrder, updateOrder,
 } from '../api/orderData';
 import getTheTime from '../utils/getTheTime';
 import orderDetails from '../pages/orderDetails';
 import showOrders from '../pages/viewOrdersPage';
-import { closeOrder } from '../utils/closeOrder';
 import { updateItem, createNewItem } from '../api/itemData';
 import filterRevenue from '../utils/filterRevenue';
 import { mergeOrdersCustomersArray } from '../api/mergeData';
@@ -44,62 +43,21 @@ const formEvents = () => {
             });
         });
     }
-    if (e.target.id.includes('submit-close')) {
+
+    if (e.target.id.includes('close-order-form')) {
+      e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         order_status: 'closed',
         tip_amount: document.querySelector('#tip-amount').value,
-        total_amount: '',
-        payment_type: document.querySelector('#drop-down').value,
+        payment_type: document.querySelector('#payment-type').value,
         firebaseKey,
       };
-
-      closeOrder(payload).then(() => {
-        getOrders().then(showOrders);
+      updateOrder(payload).then(() => {
+        mergeOrdersCustomersArray().then(showOrders);
       });
     }
-    if (e.target.id.includes('submit-close')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      const payload = {
-        orer_status: 'closed',
-        tip_amount: document.querySelector('#tip-amount').value,
-        total_amount: '',
-        payment_type: document.querySelector('#drop-down').value,
-        firebaseKey,
-      };
 
-      closeOrder(payload).then(() => {
-        getOrders().then(showOrders);
-      });
-    }
-    if (e.target.id.includes('submit-close')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      const payload = {
-        order_status: 'closed',
-        tip_amount: document.querySelector('#tip-amount').value,
-        total_amount: '',
-        payment_type: document.querySelector('#drop-down').value,
-        firebaseKey,
-      };
-
-      closeOrder(payload).then(() => {
-        getOrders().then(showOrders);
-      });
-    }
-    if (e.target.id.includes('submit-close')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      const payload = {
-        orer_status: 'closed',
-        tip_amount: document.querySelector('#tip-amount').value,
-        total_amount: '',
-        payment_type: document.querySelector('#drop-down').value,
-        firebaseKey,
-      };
-
-      closeOrder(payload).then(() => {
-        getOrders().then(showOrders);
-      });
-    }
     // CREATE -- CREATE/EDIT ITEM FORM
     if (e.target.id.includes('create-item')) {
       e.preventDefault();
@@ -148,12 +106,16 @@ const formEvents = () => {
         firebaseKey: itemFirebaseKey
       };
       updateItem(payload)
-        .then(orderDetails(orderFirebaseKey));
+        .then(() => { orderDetails(orderFirebaseKey); });
     }
   });
+
+  // REVENUE PAGE FILTER
   document.getElementById('view').addEventListener('submit', (e) => {
-    e.preventDefault();
-    filterRevenue();
+    if (e.target.id === 'revenue-filter-bar-form') {
+      e.preventDefault();
+      filterRevenue();
+    }
   });
 };
 

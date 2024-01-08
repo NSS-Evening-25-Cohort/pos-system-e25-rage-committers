@@ -1,6 +1,6 @@
 import createEditItemForm from '../components/forms/createEditItemForm';
 import showOrders from '../pages/viewOrdersPage';
-import { getSingleOrder, getClosedOrders } from '../api/orderData';
+import { getSingleOrder, getClosedOrders, updateOrder } from '../api/orderData';
 import createEditOrderPage from '../components/forms/createEditOrderPage';
 import { getSingleItem, deleteSingleItem, getOrderItems } from '../api/itemData';
 import { getSingleCustomer } from '../api/customerData';
@@ -22,7 +22,6 @@ const domEvents = () => {
     if (e.target.id === 'view-revenue-button') {
       getClosedOrders().then(revenuePage);
     }
-
     // ORDER DETAILS PAGE
     if (e.target.id.includes('add-items-button')) {
       const [, firebaseKey] = e.target.id.split('--');
@@ -34,15 +33,29 @@ const domEvents = () => {
         createEditItemForm(orderFirebaseKey, data);
       });
     }
-
     // GO TO PAYMENT
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      closeOrderForm(firebaseKey);
+      getOrderItems(firebaseKey).then((data) => {
+        const itemPrices = [];
+        data.forEach((item) => {
+          itemPrices.push(Number(item.item_price));
+        });
+        const initialValue = 0;
+        const total = itemPrices.reduce((accumulator, currentValue) => accumulator + currentValue,
+          initialValue);
+        const payload = {
+          total_amount: total,
+          firebaseKey
+        };
+        updateOrder(payload).then(() => {
+          closeOrderForm(firebaseKey);
+        });
+      });
     }
+    // EDIT ORDER DETAILS
     if (e.target.id.includes('edit-order')) {
       const [, orderFirebaseKey, customerFirebaseKey] = e.target.id.split('--');
-      // eslint-disable-next-line no-console
       getSingleCustomer(customerFirebaseKey)
         .then((customerObj) => {
           getSingleOrder(orderFirebaseKey)
@@ -51,22 +64,24 @@ const domEvents = () => {
             });
         });
     }
-
+    // DELETE ORDER
     if (e.target.id.includes('delete-order')) {
       const [, orderFirebaseKey, customerFirebaseKey] = e.target.id.split('--');
       deleteOrderItemRelationship(orderFirebaseKey, customerFirebaseKey).then(() => {
         mergeOrdersCustomersArray().then(showOrders);
       });
     }
+    // ORDER DETAILS PAGE
     if (e.target.id.includes('details-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       orderDetails(firebaseKey);
     }
-
+    // DELETE ITEM
     if (e.target.id.includes('delete-item')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      deleteSingleItem(firebaseKey).then(() => {
-        getOrderItems().then(orderDetails);
+      console.log('click');
+      const [, itemFirebaseKey, orderFirebaseKey] = e.target.id.split('--');
+      deleteSingleItem(itemFirebaseKey).then(() => {
+        orderDetails(orderFirebaseKey);
       });
     }
   });

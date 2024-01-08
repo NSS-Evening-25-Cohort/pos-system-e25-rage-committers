@@ -9,6 +9,12 @@ body {
   margin-top: 100px;
 }
 
+#order-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -125,7 +131,22 @@ width: 30%;
   text-decoration: none;
 }
 
-//ORDER ITEM PAGE
+//ORDER ITEMS PAGE
+.card-link-edit-item{
+  text-decoration: none;
+  color: rgb(0, 164, 218);
+}
+.card-link-delete-item{
+  text-decoration: none;
+  color: rgb(222, 0, 222);
+}
+#orderItem-button-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%
+}
+.order-item-
 //REVENUE PAGE
 #rev-header{
   margin-top: 20%;
@@ -182,4 +203,8 @@ margin-bottom: 2%;
   justify-content: center;
   align-items: center;
   gap: 3%;
+}
+
+#payment-type{
+  margin-bottom:3%
 }

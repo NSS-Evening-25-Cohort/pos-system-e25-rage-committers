@@ -9,6 +9,7 @@ const showOrders = (array) => {
 
   let domString = '';
   array.forEach((order) => {
+    console.log(order.firebaseKey);
     const orderTypeFormatted = order.order_type.replace('_', '-');
     domString
             += `<div class="view-orders-container">

@@ -5,6 +5,7 @@ import takeMeHome from '../pages/homePage';
 import navigationEvents from '../events/navigationEvents';
 import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
+import orderDetails from '../pages/orderDetails';
 
 const startApp = (user) => {
   domBuilder(); // BUILD THE DOM
