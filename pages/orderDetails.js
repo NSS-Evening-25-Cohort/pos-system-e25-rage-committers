@@ -4,6 +4,7 @@ import renderOrderItems from '../utils/renderOrderItems';
 import getOrderTotal from '../utils/getOrderTotal';
 
 const orderDetails = (firebaseKey) => {
+  console.log(firebaseKey);
   clearDom();
   const orderTotal = `
   <div id="order-total-display"><div id="revenue"></div></div>

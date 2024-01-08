@@ -106,7 +106,7 @@ const formEvents = () => {
         firebaseKey: itemFirebaseKey
       };
       updateItem(payload)
-        .then(orderDetails(orderFirebaseKey));
+        .then(() => { orderDetails(orderFirebaseKey); });
     }
   });
 

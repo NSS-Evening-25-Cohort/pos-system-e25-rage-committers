@@ -78,9 +78,10 @@ const domEvents = () => {
     }
     // DELETE ITEM
     if (e.target.id.includes('delete-item')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      deleteSingleItem(firebaseKey).then(() => {
-        getOrderItems().then(orderDetails);
+      console.log('click');
+      const [, itemFirebaseKey, orderFirebaseKey] = e.target.id.split('--');
+      deleteSingleItem(itemFirebaseKey).then(() => {
+        orderDetails(orderFirebaseKey);
       });
     }
   });
